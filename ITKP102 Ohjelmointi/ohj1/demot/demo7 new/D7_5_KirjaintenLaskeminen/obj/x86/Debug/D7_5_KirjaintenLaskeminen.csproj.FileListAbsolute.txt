@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_5_KirjaintenLaskeminen\bin\Debug\D7_5_KirjaintenLaskeminen.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_5_KirjaintenLaskeminen\bin\Debug\D7_5_KirjaintenLaskeminen.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_5_KirjaintenLaskeminen\obj\x86\Debug\D7_5_KirjaintenLaskeminen.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_5_KirjaintenLaskeminen\obj\x86\Debug\D7_5_KirjaintenLaskeminen.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_5_KirjaintenLaskeminen\obj\x86\Debug\D7_5_KirjaintenLaskeminen.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_5_KirjaintenLaskeminen\obj\x86\Debug\D7_5_KirjaintenLaskeminen.pdb

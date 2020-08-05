@@ -1,0 +1,1128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="csdoc\html\doxygen.css">
+<META NAME="GENERATOR" CONTENT="demovastaus.pl">
+<TITLE>Mallivastaukset</TITLE>
+<style type="text/css" media="print">
+.noprint
+{
+   display: none;
+}
+</style>
+</HEAD>
+<BODY>
+<h1>Ohjelmointi 1/2017, demo 7 vastauksia</h1>
+<h2>Tauno 1</h2>
+<h3>Tauno7/Tauno7.cs</h3>
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 ﻿using System;
+<a name="l00002"></a>00002 <span class="keyword">using</span> System.Text;
+<a name="l00003"></a>00003 <span class="keyword">using</span> System.Linq;
+<a name="l00004"></a>00004 <span class="keyword">using</span> System.Collections.Generic;
+<a name="l00005"></a>00005 <span class="comment"></span>
+<a name="l00006"></a>00006 <span class="comment">/// @author vesal</span>
+<a name="l00007"></a>00007 <span class="comment">/// @version 20.10.2013</span>
+<a name="l00008"></a>00008 <span class="comment">/// &lt;summary&gt;</span>
+<a name="l00009"></a>00009 <span class="comment">/// Lasketaan rajan ylittävät luvut</span>
+<a name="l00010"></a>00010 <span class="comment">/// &lt;/summary&gt;</span>
+<a name="l00011"></a><a class="code" href="csdoc/html/classTauno7.html">00011</a> <span class="comment"></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="csdoc/html/classTauno7.html" title="Lasketaan rajan ylittävät luvut.">Tauno7</a>
+<a name="l00012"></a>00012 {<span class="comment"></span>
+<a name="l00013"></a>00013 <span class="comment">    /// &lt;summary&gt;</span>
+<a name="l00014"></a>00014 <span class="comment">    /// Lasketyaan moniko luku ylittää rajan</span>
+<a name="l00015"></a>00015 <span class="comment">    /// &lt;/summary&gt;</span>
+<a name="l00016"></a><a class="code" href="csdoc/html/classTauno7.html#aabd91809287ec7588e95e481e7d8154b">00016</a> <span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="csdoc/html/classTauno7.html#aabd91809287ec7588e95e481e7d8154b" title="Lasketyaan moniko luku ylittää rajan.">Main</a>()
+<a name="l00017"></a>00017     {
+<a name="l00018"></a>00018         <span class="keywordtype">int</span>[] taulukko = { 72, 22, 73, 2, 16, 62 };
+<a name="l00019"></a>00019         <span class="keywordtype">int</span> maara = <a class="code" href="csdoc/html/classTauno7.html#ad32c2482b1cb3d424cfaa5879b397a86" title="Lasketaan moniko luku on suurempi kuin annettu raja. Jokainen rajan ylittävä taulukon alkio muutetaan...">MuutaYli</a>(taulukko, 20, 0);
+<a name="l00020"></a>00020         Console.WriteLine(<span class="stringliteral">&quot;{0} {1}&quot;</span>, maara, String.Join(<span class="stringliteral">&quot;, &quot;</span>, taulukko));
+<a name="l00021"></a>00021     }
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="comment"></span>
+<a name="l00024"></a>00024 <span class="comment">    /// &lt;summary&gt;</span>
+<a name="l00025"></a>00025 <span class="comment">    /// Lasketaan moniko luku on suurempi kuin annettu raja.  Jokainen rajan ylittävä</span>
+<a name="l00026"></a>00026 <span class="comment">    /// taulukon alkio muutetaan miksi-arvoksi</span>
+<a name="l00027"></a>00027 <span class="comment">    /// &lt;/summary&gt;</span>
+<a name="l00028"></a>00028 <span class="comment">    /// &lt;param name=&quot;t&quot;&gt;taukukko jota tutkitaan&lt;/param&gt;</span>
+<a name="l00029"></a>00029 <span class="comment">    /// &lt;param name=&quot;raja&quot;&gt;raja jota suuremmat lasketaan ja muutetaan&lt;/param&gt;</span>
+<a name="l00030"></a>00030 <span class="comment">    /// &lt;param name=&quot;miksi&quot;&gt;miksi luvuksi muutetaan&lt;/param&gt;</span>
+<a name="l00031"></a>00031 <span class="comment">    /// &lt;returns&gt;moniko arvo muutettiin&lt;/returns&gt;</span>
+<a name="l00032"></a>00032 <span class="comment">    /// &lt;example&gt;</span>
+<a name="l00033"></a>00033 <span class="comment">    /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00034"></a>00034 <span class="comment">    ///     int[] t = { 72, 22, 73, 2, 16, 62 };</span>
+<a name="l00035"></a>00035 <span class="comment">    ///     MuutaYli(t,20,0) === 4;</span>
+<a name="l00036"></a>00036 <span class="comment">    ///     String.Join(&quot;, &quot;, t) === &quot;0, 0, 0, 2, 16, 0&quot;;</span>
+<a name="l00037"></a>00037 <span class="comment">    /// &lt;/pre&gt;</span>
+<a name="l00038"></a>00038 <span class="comment">    /// &lt;/example&gt;</span>
+<a name="l00039"></a><a class="code" href="csdoc/html/classTauno7.html#ad32c2482b1cb3d424cfaa5879b397a86">00039</a> <span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="csdoc/html/classTauno7.html#ad32c2482b1cb3d424cfaa5879b397a86" title="Lasketaan moniko luku on suurempi kuin annettu raja. Jokainen rajan ylittävä taulukon alkio muutetaan...">MuutaYli</a>(<span class="keywordtype">int</span>[] t, <span class="keywordtype">int</span> raja, <span class="keywordtype">int</span> miksi)
+<a name="l00040"></a>00040     {<span class="comment"></span>
+<a name="l00041"></a>00041 <span class="comment">        /// TODO: 1. Tee Taunoon apumuuttuja raja ja sen arvoksi 20, tee apumuuttuja miksi ja sen arvoksi 0</span>
+<a name="l00042"></a>00042 <span class="comment">        /// TODO: 2. Tee tarvittava apumuuttuja lkm ja indeksi i</span>
+<a name="l00043"></a>00043 <span class="comment">        /// TODO: 3. Askella taulukko läpi ja laske moniko alkio on suurempi kuin tämä raja ja samalla muuta nämä isot miksi arvoon</span>
+<a name="l00044"></a>00044 <span class="comment">        /// TODO: 4. kopioi näiden rivien tilalle tuo koodi (pyyhi raja ja miksi-muuttujien luonti pois)</span>
+<a name="l00045"></a>00045 <span class="comment">        /// TODO: 5. Laita lkm kasvattaneet ja taulukon arvoa muuttaneet lauseet sopivan if-aluseen sisään</span>
+<a name="l00046"></a>00046 <span class="comment">        /// TODO: 6: Lisää vastaavat rivit kaikkien muiden rivien kohdalle jotta koodissa on samanlaisia &quot;lohkoja&quot;</span>
+<a name="l00047"></a>00047 <span class="comment">        /// TODO: 7: Testaa ja jos toimii, kommentoi koko homma</span>
+<a name="l00048"></a>00048 <span class="comment">        /// TODO: 8: Muuta silmukaksi</span>
+<a name="l00049"></a>00049 <span class="comment">        /// </span>
+<a name="l00050"></a>00050 <span class="comment"></span>        <span class="comment">/*</span>
+<a name="l00051"></a>00051 <span class="comment">        int i = 0;</span>
+<a name="l00052"></a>00052 <span class="comment">        int lkm = miksi;</span>
+<a name="l00053"></a>00053 <span class="comment"></span>
+<a name="l00054"></a>00054 <span class="comment">        lkm += 1;</span>
+<a name="l00055"></a>00055 <span class="comment">        t[i] = miksi;</span>
+<a name="l00056"></a>00056 <span class="comment">        i += 1;</span>
+<a name="l00057"></a>00057 <span class="comment"></span>
+<a name="l00058"></a>00058 <span class="comment">        lkm += 1;</span>
+<a name="l00059"></a>00059 <span class="comment">        t[i] = miksi;</span>
+<a name="l00060"></a>00060 <span class="comment">        i += 1;</span>
+<a name="l00061"></a>00061 <span class="comment"></span>
+<a name="l00062"></a>00062 <span class="comment">        lkm += 1;</span>
+<a name="l00063"></a>00063 <span class="comment">        t[i] = miksi;</span>
+<a name="l00064"></a>00064 <span class="comment">        i += 1;</span>
+<a name="l00065"></a>00065 <span class="comment"></span>
+<a name="l00066"></a>00066 <span class="comment">        i += 1;</span>
+<a name="l00067"></a>00067 <span class="comment"></span>
+<a name="l00068"></a>00068 <span class="comment">        i += 1;</span>
+<a name="l00069"></a>00069 <span class="comment"></span>
+<a name="l00070"></a>00070 <span class="comment">        lkm += 1;</span>
+<a name="l00071"></a>00071 <span class="comment">        t[i] = miksi;</span>
+<a name="l00072"></a>00072 <span class="comment">        i += 1;</span>
+<a name="l00073"></a>00073 <span class="comment">        */</span>
+<a name="l00074"></a>00074         <span class="comment">/*</span>
+<a name="l00075"></a>00075 <span class="comment">        int i = 0;</span>
+<a name="l00076"></a>00076 <span class="comment">        int lkm = 0;</span>
+<a name="l00077"></a>00077 <span class="comment"></span>
+<a name="l00078"></a>00078 <span class="comment">        if (t[i] &gt; raja) { lkm += 1; t[i] = miksi;  }</span>
+<a name="l00079"></a>00079 <span class="comment">        i += 1;</span>
+<a name="l00080"></a>00080 <span class="comment"></span>
+<a name="l00081"></a>00081 <span class="comment">        if (t[i] &gt; raja) { lkm += 1; t[i] = miksi; }</span>
+<a name="l00082"></a>00082 <span class="comment">        i += 1;</span>
+<a name="l00083"></a>00083 <span class="comment"></span>
+<a name="l00084"></a>00084 <span class="comment">        if (t[i] &gt; raja) { lkm += 1; t[i] = miksi; }</span>
+<a name="l00085"></a>00085 <span class="comment">        i += 1;</span>
+<a name="l00086"></a>00086 <span class="comment"></span>
+<a name="l00087"></a>00087 <span class="comment">        i += 1;</span>
+<a name="l00088"></a>00088 <span class="comment"></span>
+<a name="l00089"></a>00089 <span class="comment">        i += 1;</span>
+<a name="l00090"></a>00090 <span class="comment"></span>
+<a name="l00091"></a>00091 <span class="comment">        if (t[i] &gt; raja) { lkm += 1; t[i] = miksi; }</span>
+<a name="l00092"></a>00092 <span class="comment">        i += 1;</span>
+<a name="l00093"></a>00093 <span class="comment">        */</span>
+<a name="l00094"></a>00094         <span class="keywordtype">int</span> lkm = 0;
+<a name="l00095"></a>00095         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; t.Length; i++)
+<a name="l00096"></a>00096         {
+<a name="l00097"></a>00097             <span class="keywordflow">if</span> (t[i] &gt; raja)
+<a name="l00098"></a>00098             {
+<a name="l00099"></a>00099                 lkm += 1;
+<a name="l00100"></a>00100                 t[i] = miksi;
+<a name="l00101"></a>00101             }
+<a name="l00102"></a>00102         }
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105         <span class="keywordflow">return</span> lkm;
+<a name="l00106"></a>00106     }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 }
+</pre>
+<div class='noprint'><a href="csdoc/html/Tauno7_8cs.html">[Doc-muoto]</a> <a href="Tauno7/Tauno7.cs">[Alkuper&auml;inen .cs]</a><br />
+</div><h2>Tauno 2</h2>
+<h3>Tauno72/Tauno72.cs</h3>
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 ﻿using System;
+<a name="l00002"></a>00002 <span class="keyword">using</span> System.Text;
+<a name="l00003"></a>00003 <span class="keyword">using</span> System.Linq;
+<a name="l00004"></a>00004 <span class="keyword">using</span> System.Collections.Generic;
+<a name="l00005"></a>00005 <span class="comment"></span>
+<a name="l00006"></a>00006 <span class="comment">/// @author vesal</span>
+<a name="l00007"></a>00007 <span class="comment">/// @version 20.10.2013</span>
+<a name="l00008"></a>00008 <span class="comment">/// &lt;summary&gt;</span>
+<a name="l00009"></a>00009 <span class="comment">/// Kahden taulukon sisätulo</span>
+<a name="l00010"></a>00010 <span class="comment">/// &lt;/summary&gt;</span>
+<a name="l00011"></a><a class="code" href="csdoc/html/classTauno72.html">00011</a> <span class="comment"></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="csdoc/html/classTauno72.html" title="Kahden taulukon sisätulo.">Tauno72</a>
+<a name="l00012"></a>00012 {<span class="comment"></span>
+<a name="l00013"></a>00013 <span class="comment">    /// &lt;summary&gt;</span>
+<a name="l00014"></a>00014 <span class="comment">    /// Lasketaan kahden taulukon sisätulo</span>
+<a name="l00015"></a>00015 <span class="comment">    /// &lt;/summary&gt;</span>
+<a name="l00016"></a><a class="code" href="csdoc/html/classTauno72.html#a301540d43a45f094fc3c6b98514d9326">00016</a> <span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="csdoc/html/classTauno72.html#a301540d43a45f094fc3c6b98514d9326" title="Lasketaan kahden taulukon sisätulo.">Main</a>()
+<a name="l00017"></a>00017     {
+<a name="l00018"></a>00018         <span class="keywordtype">int</span>[,] maski = { 
+<a name="l00019"></a>00019             {1,1,1},
+<a name="l00020"></a>00020             {1,0,0},
+<a name="l00021"></a>00021             {0,1,1} 
+<a name="l00022"></a>00022         };
+<a name="l00023"></a>00023         <span class="keywordtype">int</span>[,] luvut = { 
+<a name="l00024"></a>00024            {255,34,120,222},
+<a name="l00025"></a>00025            {35,50,60,70},
+<a name="l00026"></a>00026            {50,90,102,10},
+<a name="l00027"></a>00027            {20,34,44,55} 
+<a name="l00028"></a>00028         };
+<a name="l00029"></a>00029         <span class="keywordtype">int</span> st = <a class="code" href="csdoc/html/classTauno72.html#acfb36802a1f45c3c9a03071930de4b76" title="Lasketaan matriin osan ja maskin välinen sisätulo (eli kerrotaan vastinalkiot ja summataan). Aloituspisteen iy,ix tulee olla sisäpiste (se ei saa olla reunassa) Maskin tulee olla 3x3 kokoinen.">Sisatulo</a>(luvut, maski, 2, 1);  <span class="comment">// 273</span>
+<a name="l00030"></a>00030         Console.WriteLine(st);
+<a name="l00031"></a>00031     }
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="comment"></span>
+<a name="l00034"></a>00034 <span class="comment">    /// &lt;summary&gt;</span>
+<a name="l00035"></a>00035 <span class="comment">    /// Lasketaan matriin osan ja maskin välinen sisätulo (eli kerrotaan vastinalkiot ja summataan).</span>
+<a name="l00036"></a>00036 <span class="comment">    /// Aloituspisteen iy,ix tulee olla sisäpiste (se ei saa olla reunassa)</span>
+<a name="l00037"></a>00037 <span class="comment">    /// Maskin tulee olla 3x3 kokoinen.</span>
+<a name="l00038"></a>00038 <span class="comment">    /// &lt;/summary&gt;</span>
+<a name="l00039"></a>00039 <span class="comment">    /// &lt;param name=&quot;luvut&quot;&gt;matriisi, jonka osa otetaan&lt;/param&gt;</span>
+<a name="l00040"></a>00040 <span class="comment">    /// &lt;param name=&quot;maski&quot;&gt;maski, jonka kanssa sisätulo lasketaan&lt;/param&gt;</span>
+<a name="l00041"></a>00041 <span class="comment">    /// &lt;param name=&quot;iy&quot;&gt;miltä riviltä luvut-taulukkoa aloitetaan&lt;/param&gt;</span>
+<a name="l00042"></a>00042 <span class="comment">    /// &lt;param name=&quot;ix&quot;&gt;miltä sarakkeelta luvut-taulukkoa aloitetaan&lt;/param&gt;</span>
+<a name="l00043"></a>00043 <span class="comment">    /// &lt;returns&gt;sisätulo&lt;/returns&gt;</span>
+<a name="l00044"></a>00044 <span class="comment">    /// &lt;example&gt;</span>
+<a name="l00045"></a>00045 <span class="comment">    /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00046"></a>00046 <span class="comment">    ///    int[,] maski = { {1,1,1},{1,0,0},{0,1,1} };</span>
+<a name="l00047"></a>00047 <span class="comment">    ///    int[,] luvut = { {255,34,120,222},{35,50,60,70},{50,90,102,10},{20,34,44,55} };</span>
+<a name="l00048"></a>00048 <span class="comment">    ///    Sisatulo(luvut,maski,2,1) === 273;</span>
+<a name="l00049"></a>00049 <span class="comment">    ///    Sisatulo(luvut,maski,1,1) === 636;</span>
+<a name="l00050"></a>00050 <span class="comment">    ///    Sisatulo(luvut,maski,1,2) === 538;</span>
+<a name="l00051"></a>00051 <span class="comment">    ///    Sisatulo(luvut,maski,2,2) === 369;</span>
+<a name="l00052"></a>00052 <span class="comment">    /// &lt;/pre&gt;</span>
+<a name="l00053"></a>00053 <span class="comment">    /// &lt;/example&gt;</span>
+<a name="l00054"></a>00054 <span class="comment">    /// &lt;example&gt;</span>
+<a name="l00055"></a>00055 <span class="comment">    /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00056"></a>00056 <span class="comment">    ///  int[,] naapurit = { {1,1,1},{1,0,1},{1,1,1} };</span>
+<a name="l00057"></a>00057 <span class="comment">    ///  int[,] alkuSukupolvi = {</span>
+<a name="l00058"></a>00058 <span class="comment">    ///    { 1,0,1,1 },</span>
+<a name="l00059"></a>00059 <span class="comment">    ///    { 0,1,1,0 },</span>
+<a name="l00060"></a>00060 <span class="comment">    ///    { 1,0,0,0 },</span>
+<a name="l00061"></a>00061 <span class="comment">    ///    { 1,0,0,1 }</span>
+<a name="l00062"></a>00062 <span class="comment">    ///  };</span>
+<a name="l00063"></a>00063 <span class="comment">    ///  Sisatulo(alkuSukupolvi,naapurit,2,1) === 4;</span>
+<a name="l00064"></a>00064 <span class="comment">    ///  Sisatulo(alkuSukupolvi,naapurit,1,1) === 4;</span>
+<a name="l00065"></a>00065 <span class="comment">    ///  Sisatulo(alkuSukupolvi,naapurit,1,2) === 3;</span>
+<a name="l00066"></a>00066 <span class="comment">    ///  Sisatulo(alkuSukupolvi,naapurit,2,2) === 3;</span>
+<a name="l00067"></a>00067 <span class="comment">    /// &lt;/pre&gt;</span>
+<a name="l00068"></a>00068 <span class="comment">    /// &lt;/example&gt;</span>
+<a name="l00069"></a><a class="code" href="csdoc/html/classTauno72.html#acfb36802a1f45c3c9a03071930de4b76">00069</a> <span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="csdoc/html/classTauno72.html#acfb36802a1f45c3c9a03071930de4b76" title="Lasketaan matriin osan ja maskin välinen sisätulo (eli kerrotaan vastinalkiot ja summataan). Aloituspisteen iy,ix tulee olla sisäpiste (se ei saa olla reunassa) Maskin tulee olla 3x3 kokoinen.">Sisatulo</a>(<span class="keywordtype">int</span>[,] luvut, <span class="keywordtype">int</span>[,] maski, <span class="keywordtype">int</span> iy, <span class="keywordtype">int</span> ix)
+<a name="l00070"></a>00070     {
+<a name="l00071"></a>00071         <span class="keywordtype">int</span> summa = 0;
+<a name="l00072"></a>00072         <span class="comment">/*</span>
+<a name="l00073"></a>00073 <span class="comment">        // vain paikan 2,1 summa</span>
+<a name="l00074"></a>00074 <span class="comment">        summa += luvut[1, 0] * maski[0, 0];</span>
+<a name="l00075"></a>00075 <span class="comment">        summa += luvut[1, 1] * maski[0, 1];</span>
+<a name="l00076"></a>00076 <span class="comment">        summa += luvut[1, 2] * maski[0, 2];</span>
+<a name="l00077"></a>00077 <span class="comment">        summa += luvut[2, 0] * maski[1, 0];</span>
+<a name="l00078"></a>00078 <span class="comment">        summa += luvut[2, 1] * maski[1, 1];</span>
+<a name="l00079"></a>00079 <span class="comment">        summa += luvut[2, 2] * maski[1, 2];</span>
+<a name="l00080"></a>00080 <span class="comment">        summa += luvut[3, 0] * maski[2, 0];</span>
+<a name="l00081"></a>00081 <span class="comment">        summa += luvut[3, 1] * maski[2, 1];</span>
+<a name="l00082"></a>00082 <span class="comment">        summa += luvut[3, 2] * maski[2, 2];</span>
+<a name="l00083"></a>00083 <span class="comment">        */</span>
+<a name="l00084"></a>00084         <span class="comment">/*</span>
+<a name="l00085"></a>00085 <span class="comment">        summa += luvut[iy - 1, ix - 1] * maski[0, 0];</span>
+<a name="l00086"></a>00086 <span class="comment">        summa += luvut[iy - 1, ix + 0] * maski[0, 1];</span>
+<a name="l00087"></a>00087 <span class="comment">        summa += luvut[iy - 1, ix + 1] * maski[0, 2];</span>
+<a name="l00088"></a>00088 <span class="comment">        summa += luvut[iy + 0, ix - 1] * maski[1, 0];</span>
+<a name="l00089"></a>00089 <span class="comment">        summa += luvut[iy + 0, ix + 0] * maski[1, 1];</span>
+<a name="l00090"></a>00090 <span class="comment">        summa += luvut[iy + 0, ix + 1] * maski[1, 2];</span>
+<a name="l00091"></a>00091 <span class="comment">        summa += luvut[iy + 1, ix - 1] * maski[2, 0];</span>
+<a name="l00092"></a>00092 <span class="comment">        summa += luvut[iy + 1, ix + 0] * maski[2, 1];</span>
+<a name="l00093"></a>00093 <span class="comment">        summa += luvut[iy + 1, ix + 1] * maski[2, 2];</span>
+<a name="l00094"></a>00094 <span class="comment">         */</span>
+<a name="l00095"></a>00095         <span class="comment">/*</span>
+<a name="l00096"></a>00096 <span class="comment">        int y = -1;</span>
+<a name="l00097"></a>00097 <span class="comment"></span>
+<a name="l00098"></a>00098 <span class="comment">        int x = -1;</span>
+<a name="l00099"></a>00099 <span class="comment">        summa += luvut[iy + y, ix + x] * maski[y+1, x+1]; x++;</span>
+<a name="l00100"></a>00100 <span class="comment">        summa += luvut[iy + y, ix + x] * maski[y+1, x+1]; x++;</span>
+<a name="l00101"></a>00101 <span class="comment">        summa += luvut[iy + y, ix + x] * maski[y+1, x+1]; x++;</span>
+<a name="l00102"></a>00102 <span class="comment">        y++;</span>
+<a name="l00103"></a>00103 <span class="comment"></span>
+<a name="l00104"></a>00104 <span class="comment">        x = -1;</span>
+<a name="l00105"></a>00105 <span class="comment">        summa += luvut[iy + y, ix + x] * maski[y+1, x+1]; x++;</span>
+<a name="l00106"></a>00106 <span class="comment">        summa += luvut[iy + y, ix + x] * maski[y+1, x+1]; x++;</span>
+<a name="l00107"></a>00107 <span class="comment">        summa += luvut[iy + y, ix + x] * maski[y+1, x+1]; x++;</span>
+<a name="l00108"></a>00108 <span class="comment">        y++;</span>
+<a name="l00109"></a>00109 <span class="comment"></span>
+<a name="l00110"></a>00110 <span class="comment">        x = -1;</span>
+<a name="l00111"></a>00111 <span class="comment">        summa += luvut[iy + y, ix + x] * maski[y+1, x+1]; x++;</span>
+<a name="l00112"></a>00112 <span class="comment">        summa += luvut[iy + y, ix + x] * maski[y+1, x+1]; x++;</span>
+<a name="l00113"></a>00113 <span class="comment">        summa += luvut[iy + y, ix + x] * maski[y+1, x+1]; x++;</span>
+<a name="l00114"></a>00114 <span class="comment">        y++;</span>
+<a name="l00115"></a>00115 <span class="comment">        */</span>
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> my = 0; my &lt;= 2; my++)
+<a name="l00118"></a>00118             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> mx = 0; mx &lt;= 2; mx++)
+<a name="l00119"></a>00119                 summa += luvut[iy + my - 1, ix + mx - 1] * maski[my, mx];
+<a name="l00120"></a>00120         <span class="keywordflow">return</span> summa;
+<a name="l00121"></a>00121     }
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 }
+</pre>
+<div class='noprint'><a href="csdoc/html/Tauno72_8cs.html">[Doc-muoto]</a> <a href="Tauno72/Tauno72.cs">[Alkuper&auml;inen .cs]</a><br />
+</div><h2>1.-4. Muutokset Kuvaaja.cs:&auml;&auml;n</h2>
+<pre>
+
+Teht&auml;v&auml; 1:
+==========
+        public static void LuoPisteet(PhysicsGame game, Vector[] pisteet, double r)
+        {
+            foreach (Vector p in pisteet)
+                LuoPallo(game, p, r, Color.Black);
+        }
+
+
+Teht&auml;v&auml; 2:
+==========
+        public static Vector[] ArvoPisteet(int n, double x1, double y1, double x2, double y2)
+        {
+            Vector[] pisteet = new Vector[n];
+            for (int i = 0; i &lt; n; i++)
+            {
+                double x = RandomGen.NextDouble(x1, x2);
+                double y = RandomGen.NextDouble(y1, y2);
+                pisteet[i] = new Vector(x, y);
+            }
+            return pisteet;
+        }
+
+Teht&auml;v&auml; 3:
+==========
+        public static int LahimmanIndeksi(Vector[] pisteet, Vector piste)
+        {
+            int paikka = -1;
+            double ero = double.MaxValue;
+            for (int i = 0; i &lt; pisteet.Length; i++)
+            {
+                Vector p = pisteet[i];
+                double d = Vector.Distance(piste, p);
+                if (d &lt; ero)
+                {
+                    paikka = i;
+                    ero = d;
+                }
+            }
+            return paikka;
+        }
+
+
+Teht&auml;v&auml; 4:
+==========
+        public void SiirraMerkkipisteet(Vector p)
+        {
+            klikattuPiste.Position = p;
+
+            int i = LahimmanIndeksi(pisteet, p);
+            if (i &lt; 0) return;
+
+            merkkipiste.Position = pisteet[i];
+        }
+
+
+
+</pre>
+<h2>1.-4.  Koko tiedosto</h2>
+<h3>Kuvaaja/Kuvaaja/Kuvaaja.cs</h3>
+<div class='noprint'><a href="csdoc/html/Kuvaaja_8cs_source.html">[V&auml;rillinen versio]</a> <a href="csdoc/html/Kuvaaja_8cs.html">[Doc-muoto]</a> <a href="Kuvaaja/Kuvaaja/Kuvaaja.cs">[Alkuper&auml;inen .cs]</a><br />
+</div><h2>5., 6., B1.  Matriisien summa, erota luvut, laske kirjaimet</h2>
+<h3>Taulukot/Taulukot.cs</h3>
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 ﻿using System;
+<a name="l00002"></a>00002 <span class="keyword">using</span> System.Text.RegularExpressions;
+<a name="l00003"></a>00003 <span class="keyword">using</span> System.Globalization;
+<a name="l00004"></a>00004 <span class="keyword">using</span> System.Linq;
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>Demo7
+<a name="l00007"></a>00007 {<span class="comment"></span>
+<a name="l00008"></a>00008 <span class="comment">    /// @author  Vesa Lappalainen</span>
+<a name="l00009"></a>00009 <span class="comment">    /// @version 16.10.2011</span>
+<a name="l00010"></a>00010 <span class="comment">    /// &lt;summary&gt;</span>
+<a name="l00011"></a>00011 <span class="comment">    /// Aliohjelmia taulukoille </span>
+<a name="l00012"></a>00012 <span class="comment">    /// &lt;/summary&gt;</span>
+<a name="l00013"></a><a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html">00013</a> <span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html" title="Aliohjelmia taulukoille.">Taulukot</a>
+<a name="l00014"></a>00014     {<span class="comment"></span>
+<a name="l00015"></a>00015 <span class="comment">        /// &lt;summary&gt;</span>
+<a name="l00016"></a>00016 <span class="comment">        /// Lasketaan yhteen kaksi matriisia vastinalkioittain.</span>
+<a name="l00017"></a>00017 <span class="comment">        /// Mikäli matriisit eivät ole yhtäsuuria, tehdään tulosmatriisin</span>
+<a name="l00018"></a>00018 <span class="comment">        /// kooksi matriisien yhteinen pienin koko.</span>
+<a name="l00019"></a>00019 <span class="comment">        /// &lt;/summary&gt;</span>
+<a name="l00020"></a>00020 <span class="comment">        /// &lt;param name=&quot;mat1&quot;&gt;ensimmäinen summattava&lt;/param&gt;</span>
+<a name="l00021"></a>00021 <span class="comment">        /// &lt;param name=&quot;mat2&quot;&gt;toinen summattava&lt;/param&gt;</span>
+<a name="l00022"></a>00022 <span class="comment">        /// &lt;returns&gt;taulukkojen summataulukko&lt;/returns&gt;</span>
+<a name="l00023"></a>00023 <span class="comment">        /// &lt;example&gt;</span>
+<a name="l00024"></a>00024 <span class="comment">        /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00025"></a>00025 <span class="comment">        /// // System.Globalization.CultureInfo.CurrentCulture = new System.Globalization.CultureInfo(&quot;fi-FI&quot;);</span>
+<a name="l00026"></a>00026 <span class="comment">        ///   CultureInfo ci = new CultureInfo(&quot;fi-FI&quot;);</span>
+<a name="l00027"></a>00027 <span class="comment">        ///   ci.NumberFormat.NumberDecimalSeparator = &quot;.&quot;;</span>
+<a name="l00028"></a>00028 <span class="comment">        ///   // CultureInfo.CurrentCulture = ci;</span>
+<a name="l00029"></a>00029 <span class="comment">        ///   System.Threading.Thread.CurrentThread.CurrentCulture = ci;</span>
+<a name="l00030"></a>00030 <span class="comment">        ///   // System.Threading.Thread.CurrentThread.CurrentUICulture = ci;</span>
+<a name="l00031"></a>00031 <span class="comment">        ///   // CultureInfo.DefaultThreadCurrentCulture = ci;</span>
+<a name="l00032"></a>00032 <span class="comment">        /// double[,] mat1 = { { 1, 2, 3 }, { 2, 2, 2 }, { 4, 2, 3 } };</span>
+<a name="l00033"></a>00033 <span class="comment">        /// double[,] mat2 = { { 9, 2, 8 }, { 1, 2, 5 }, { 3, 19, -3 } };</span>
+<a name="l00034"></a>00034 <span class="comment">        /// double[,] mat23 = { { 1, 2, 3 }, { 2, 2, 2 } };</span>
+<a name="l00035"></a>00035 <span class="comment">        /// double[,] mat32 = { { 9, 2 }, { 1.1, 2 }, { 3, 19 } };</span>
+<a name="l00036"></a>00036 <span class="comment">        /// double[,] mat = Summa(mat1, mat2);</span>
+<a name="l00037"></a>00037 <span class="comment">        /// Demo6.Matriisit.Jonoksi(mat,&quot; &quot;,&quot;{0}&quot;,&quot;,&quot;) === &quot;10 4 11,3 4 7,7 21 0&quot;; // tai:</span>
+<a name="l00038"></a>00038 <span class="comment">        /// String.Join(&quot; &quot;,mat.Cast&lt;double&gt;()) === &quot;10 4 11 3 4 7 7 21 0&quot;;</span>
+<a name="l00039"></a>00039 <span class="comment">        /// mat = Summa(mat23, mat32);</span>
+<a name="l00040"></a>00040 <span class="comment">        /// Demo6.Matriisit.Jonoksi(mat,&quot; &quot;,&quot;{0}&quot;,&quot;,&quot;) === &quot;10 4,3.1 4&quot;; // tai:</span>
+<a name="l00041"></a>00041 <span class="comment">        /// String.Join(&quot; &quot;,mat.Cast&lt;double&gt;()) === &quot;10 4 3.1 4&quot;;</span>
+<a name="l00042"></a>00042 <span class="comment">        /// &lt;/pre&gt;</span>
+<a name="l00043"></a>00043 <span class="comment">        /// &lt;/example&gt;</span>
+<a name="l00044"></a><a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#aa4fcb323d40cd964dbc79afb364d9ad5">00044</a> <span class="comment"></span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">double</span>[,] <a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#aa4fcb323d40cd964dbc79afb364d9ad5" title="Lasketaan yhteen kaksi matriisia vastinalkioittain. Mikäli matriisit eivät ole yhtäsuuria, tehdään tulosmatriisin kooksi matriisien yhteinen pienin koko.">Summa</a>(<span class="keywordtype">double</span>[,] mat1, <span class="keywordtype">double</span>[,] mat2)
+<a name="l00045"></a>00045         {
+<a name="l00046"></a>00046             <span class="keywordtype">int</span> ny = Math.Min(mat1.GetLength(0), mat2.GetLength(0));
+<a name="l00047"></a>00047             <span class="keywordtype">int</span> nx = Math.Min(mat1.GetLength(1), mat2.GetLength(1));
+<a name="l00048"></a>00048             <span class="keywordtype">double</span>[,] tulos = <span class="keyword">new</span> <span class="keywordtype">double</span>[ny, nx];
+<a name="l00049"></a>00049             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iy = 0; iy &lt; ny; iy++)
+<a name="l00050"></a>00050                 <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = 0; ix &lt; nx; ix++)
+<a name="l00051"></a>00051                     tulos[iy, ix] = mat1[iy, ix] + mat2[iy, ix];
+<a name="l00052"></a>00052             <span class="keywordflow">return</span> tulos;
+<a name="l00053"></a>00053         }
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="comment"></span>
+<a name="l00056"></a>00056 <span class="comment">        /// &lt;summary&gt;</span>
+<a name="l00057"></a>00057 <span class="comment">        /// Erotetaan merkkijonossa olevat luvut reaalilukutaulukoksi.</span>
+<a name="l00058"></a>00058 <span class="comment">        /// Luvut voivat olla erotettuna toisistaan välilyönnein,</span>
+<a name="l00059"></a>00059 <span class="comment">        /// pilkuin, puolipistein yms.  Huonot luvut palautetaan 0:na.</span>
+<a name="l00060"></a>00060 <span class="comment">        /// &lt;/summary&gt;</span>
+<a name="l00061"></a>00061 <span class="comment">        /// &lt;param name=&quot;jono&quot;&gt;jono josta lukuja otetaan&lt;/param&gt;</span>
+<a name="l00062"></a>00062 <span class="comment">        /// &lt;returns&gt;taulukollinen lukuja&lt;/returns&gt;</span>
+<a name="l00063"></a>00063 <span class="comment">        /// &lt;example&gt;</span>
+<a name="l00064"></a>00064 <span class="comment">        /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00065"></a>00065 <span class="comment">        ///   double[] luvut = ErotaLuvut(&quot;2 3 4 5 k      9 ;5&quot;);</span>
+<a name="l00066"></a>00066 <span class="comment">        ///   String.Join(&quot; &quot;,luvut) === &quot;2 3 4 5 0 9 5&quot;;  </span>
+<a name="l00067"></a>00067 <span class="comment">        /// &lt;/pre&gt;</span>
+<a name="l00068"></a>00068 <span class="comment">        /// &lt;/example&gt;</span>
+<a name="l00069"></a><a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#a7bdc8c0e2218d8b114054213932a8315">00069</a> <span class="comment"></span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">double</span>[] <a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#a7bdc8c0e2218d8b114054213932a8315" title="Erotetaan merkkijonossa olevat luvut reaalilukutaulukoksi. Luvut voivat olla erotettuna toisistaan vä...">ErotaLuvut</a>(<span class="keywordtype">string</span> jono)
+<a name="l00070"></a>00070         {
+<a name="l00071"></a>00071             <span class="keywordtype">string</span>[] osat = jono.Split(<span class="keyword">new</span> <span class="keywordtype">char</span>[] { <span class="charliteral">&#39; &#39;</span>, <span class="charliteral">&#39;,&#39;</span>, <span class="charliteral">&#39;;&#39;</span>, <span class="charliteral">&#39;/&#39;</span>, <span class="charliteral">&#39;:&#39;</span> }, StringSplitOptions.RemoveEmptyEntries);
+<a name="l00072"></a>00072             <span class="keywordtype">double</span>[] tulos = <span class="keyword">new</span> <span class="keywordtype">double</span>[osat.Length];
+<a name="l00073"></a>00073             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; osat.Length; i++)
+<a name="l00074"></a>00074             {
+<a name="l00075"></a>00075                 tulos[i] = <a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#ad1b1f62dd1aed7b7ac65e31c674c0b2c" title="Otetaan jonossa oleva reaaliluku. Jos luku ei ole mielekäs luku, niin palautetaan oletus...">ErotaDouble</a>(osat[i], 0.0);
+<a name="l00076"></a>00076             }
+<a name="l00077"></a>00077             <span class="keywordflow">return</span> tulos;
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="comment"></span>
+<a name="l00081"></a>00081 <span class="comment">        /// &lt;summary&gt;</span>
+<a name="l00082"></a>00082 <span class="comment">        /// Lasketaan monestikko etsittävä kirjain esiintyy jonossa</span>
+<a name="l00083"></a>00083 <span class="comment">        /// &lt;/summary&gt;</span>
+<a name="l00084"></a>00084 <span class="comment">        /// &lt;param name=&quot;jono&quot;&gt;tutkittava jono&lt;/param&gt;</span>
+<a name="l00085"></a>00085 <span class="comment">        /// &lt;param name=&quot;kirjain&quot;&gt;etsittävä kirjain&lt;/param&gt;</span>
+<a name="l00086"></a>00086 <span class="comment">        /// &lt;returns&gt;kirjaimen esiintymien lukumäärä&lt;/returns&gt;</span>
+<a name="l00087"></a>00087 <span class="comment">        /// &lt;example&gt;</span>
+<a name="l00088"></a>00088 <span class="comment">        /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00089"></a>00089 <span class="comment">        ///   LaskeKirjaimet(&quot;kissa&quot;,&#39;s&#39;) === 2;</span>
+<a name="l00090"></a>00090 <span class="comment">        ///   LaskeKirjaimet(&quot;kissa&quot;,&#39;k&#39;) === 1;</span>
+<a name="l00091"></a>00091 <span class="comment">        ///   LaskeKirjaimet(&quot;kissa&quot;,&#39;K&#39;) === 1;</span>
+<a name="l00092"></a>00092 <span class="comment">        /// &lt;/pre&gt;</span>
+<a name="l00093"></a>00093 <span class="comment">        /// &lt;/example&gt;</span>
+<a name="l00094"></a><a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#a2b98ec7977a43a11fd12d87808542634">00094</a> <span class="comment"></span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#a2b98ec7977a43a11fd12d87808542634" title="Lasketaan monestikko etsittävä kirjain esiintyy jonossa.">LaskeKirjaimet</a>(<span class="keywordtype">string</span> jono, <span class="keywordtype">char</span> kirjain)
+<a name="l00095"></a>00095         {
+<a name="l00096"></a>00096             <span class="keywordtype">int</span> maara = 0;
+<a name="l00097"></a>00097             <span class="keywordtype">char</span> pkirjain = Char.ToLower(kirjain);
+<a name="l00098"></a>00098             <span class="keywordflow">foreach</span> (<span class="keywordtype">char</span> merkki <span class="keywordflow">in</span> jono)
+<a name="l00099"></a>00099                 <span class="keywordflow">if</span> (Char.ToLower(merkki) == pkirjain) maara++;
+<a name="l00100"></a>00100             <span class="keywordflow">return</span> maara;
+<a name="l00101"></a>00101         }
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 <span class="comment"></span>
+<a name="l00105"></a>00105 <span class="comment">        /// &lt;summary&gt;</span>
+<a name="l00106"></a>00106 <span class="comment">        /// Otetaan jonossa oleva reaaliluku.  Jos luku ei ole</span>
+<a name="l00107"></a>00107 <span class="comment">        /// mielekäs luku, niin palautetaan oletus. Desimaalina on aina .</span>
+<a name="l00108"></a>00108 <span class="comment">        /// &lt;/summary&gt;</span>
+<a name="l00109"></a>00109 <span class="comment">        /// &lt;param name=&quot;jono&quot;&gt;jono josta reaaliluku otetaan&lt;/param&gt;</span>
+<a name="l00110"></a>00110 <span class="comment">        /// &lt;param name=&quot;oletus&quot;&gt;mikä arvo annetaan jos jonosta ei saada lukua&lt;/param&gt;</span>
+<a name="l00111"></a>00111 <span class="comment">        /// &lt;returns&gt;otettu reaaliluku&lt;/returns&gt;</span>
+<a name="l00112"></a>00112 <span class="comment">        /// &lt;example&gt;</span>
+<a name="l00113"></a>00113 <span class="comment">        /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00114"></a>00114 <span class="comment">        ///   ErotaDouble(&quot;&quot;) ~~~ 0.0;</span>
+<a name="l00115"></a>00115 <span class="comment">        ///   ErotaDouble(&quot; 2.3 &quot;) ~~~ 2.3;</span>
+<a name="l00116"></a>00116 <span class="comment">        ///   ErotaDouble(&quot;5 3&quot;) ~~~ 5;</span>
+<a name="l00117"></a>00117 <span class="comment">        ///   ErotaDouble(&quot;5k3&quot;) ~~~ 5;</span>
+<a name="l00118"></a>00118 <span class="comment">        ///   ErotaDouble(&quot;5e3&quot;) ~~~ 5000;</span>
+<a name="l00119"></a>00119 <span class="comment">        ///   ErotaDouble(&quot;5E-3&quot;) ~~~ 0.005;</span>
+<a name="l00120"></a>00120 <span class="comment">        ///   ErotaDouble(&quot;k&quot;) ~~~ 0.0;</span>
+<a name="l00121"></a>00121 <span class="comment">        ///   ErotaDouble(&quot;k&quot;,1.0) ~~~ 1.0;</span>
+<a name="l00122"></a>00122 <span class="comment">        ///   ErotaDouble(&quot;2..3&quot;) ~~~ 0.0;</span>
+<a name="l00123"></a>00123 <span class="comment">        /// &lt;/pre&gt;</span>
+<a name="l00124"></a>00124 <span class="comment">        /// &lt;/example&gt;</span>
+<a name="l00125"></a><a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#ad1b1f62dd1aed7b7ac65e31c674c0b2c">00125</a> <span class="comment"></span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#ad1b1f62dd1aed7b7ac65e31c674c0b2c" title="Otetaan jonossa oleva reaaliluku. Jos luku ei ole mielekäs luku, niin palautetaan oletus...">ErotaDouble</a>(<span class="keywordtype">string</span> jono, <span class="keywordtype">double</span> oletus = 0.0)
+<a name="l00126"></a>00126         {
+<a name="l00127"></a>00127             <span class="keywordtype">string</span> reg = <span class="stringliteral">@&quot;^([-0-9\.eE]+)(.*)$&quot;</span>;
+<a name="l00128"></a>00128             Match m = Regex.Match(jono.Trim(), reg);
+<a name="l00129"></a>00129             <span class="keywordtype">string</span> tjono = m.Groups[1].Value;
+<a name="l00130"></a>00130             <span class="keywordtype">double</span> tulos = oletus;
+<a name="l00131"></a>00131             NumberFormatInfo nfi = <span class="keyword">new</span> NumberFormatInfo();
+<a name="l00132"></a>00132             nfi.NumberDecimalSeparator = <span class="stringliteral">&quot;.&quot;</span>;
+<a name="l00133"></a>00133             <span class="keywordflow">if</span> (<span class="keywordtype">double</span>.TryParse(tjono,NumberStyles.Any,nfi, out tulos)) <span class="keywordflow">return</span> tulos;
+<a name="l00134"></a>00134             <span class="keywordflow">return</span> oletus;
+<a name="l00135"></a>00135         }
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137 <span class="comment"></span>
+<a name="l00138"></a>00138 <span class="comment">        /// &lt;summary&gt;</span>
+<a name="l00139"></a>00139 <span class="comment">        /// Otetaan jonossa oleva reaaliluku.  Jos luku ei ole</span>
+<a name="l00140"></a>00140 <span class="comment">        /// mielekäs luku, niin palautetaan oletus.</span>
+<a name="l00141"></a>00141 <span class="comment">        /// &lt;/summary&gt;</span>
+<a name="l00142"></a>00142 <span class="comment">        /// &lt;param name=&quot;jono&quot;&gt;jono josta reaaliluku otetaan&lt;/param&gt;</span>
+<a name="l00143"></a>00143 <span class="comment">        /// &lt;param name=&quot;oletus&quot;&gt;mikä arvo annetaan jos jonosta ei saada lukua&lt;/param&gt;</span>
+<a name="l00144"></a>00144 <span class="comment">        /// &lt;returns&gt;otettu reaaliluku&lt;/returns&gt;</span>
+<a name="l00145"></a>00145 <span class="comment">        /// &lt;example&gt;</span>
+<a name="l00146"></a>00146 <span class="comment">        /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00147"></a>00147 <span class="comment">        ///   Erota(&quot;&quot;,0.0) ~~~ 0.0;</span>
+<a name="l00148"></a>00148 <span class="comment">        ///   Erota(&quot; 2.3 &quot;,0.0) ~~~ 2.3;</span>
+<a name="l00149"></a>00149 <span class="comment">        ///   Erota(&quot;5 3&quot;,0.0) ~~~ 5;</span>
+<a name="l00150"></a>00150 <span class="comment">        ///   Erota(&quot;k&quot;,0.0) ~~~ 0.0;</span>
+<a name="l00151"></a>00151 <span class="comment">        ///   Erota(&quot;k&quot;,1.0) ~~~ 1.0;</span>
+<a name="l00152"></a>00152 <span class="comment">        ///   Erota(&quot;2..3&quot;,0.0) ~~~ 0.0;</span>
+<a name="l00153"></a>00153 <span class="comment">        /// &lt;/pre&gt;</span>
+<a name="l00154"></a>00154 <span class="comment">        /// &lt;/example&gt;</span>
+<a name="l00155"></a><a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#a6b7f2c97a3264f0362e7e412698747dd">00155</a> <span class="comment"></span>        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#a6b7f2c97a3264f0362e7e412698747dd" title="Otetaan jonossa oleva reaaliluku. Jos luku ei ole mielekäs luku, niin palautetaan oletus...">Erota</a>(<span class="keywordtype">string</span> jono, <span class="keywordtype">double</span> oletus)
+<a name="l00156"></a>00156         {
+<a name="l00157"></a>00157             <span class="keywordflow">return</span> <a class="code" href="csdoc/html/classDemo7_1_1Taulukot.html#ad1b1f62dd1aed7b7ac65e31c674c0b2c" title="Otetaan jonossa oleva reaaliluku. Jos luku ei ole mielekäs luku, niin palautetaan oletus...">ErotaDouble</a>(jono, oletus);
+<a name="l00158"></a>00158         }
+<a name="l00159"></a>00159     }
+<a name="l00160"></a>00160 }
+</pre>
+<div class='noprint'><a href="csdoc/html/Taulukot_8cs.html">[Doc-muoto]</a> <a href="Taulukot/Taulukot.cs">[Alkuper&auml;inen .cs]</a><br />
+</div><h2>B3, G1. Uuden sopuli-version k&auml;ytt&ouml;</h2>
+<pre>
+        private void LaskeJaPiirraSeuraavaSukupolvi()
+        {   //                0 1 2 3 4 5 6 7 8
+            int[,] b03s1 = { {1,0,0,1,0,0,0,0,0}, // born
+                             {0,1,0,0,0,0,0,0,0}  // survive
+                           };
+            Sopulit2.SeuraavaSukupolviTorus(sukupolvi, seuraavaSukupolvi); // ,b03s1);
+            int[,] tmp = sukupolvi;     // vaihdetaan taulukot seuraavaa
+            sukupolvi = seuraavaSukupolvi;  // kierrosta varten
+            seuraavaSukupolvi = tmp;
+
+            int ny = sukupolvi.GetLength(0);
+            int nx = sukupolvi.GetLength(1);
+
+            for (int iy = 0; iy &lt; ny; iy++)
+                for (int ix = 0; ix &lt; nx; ix++)
+                    oliot[iy, ix].Color = varit[sukupolvi[iy, ix]];
+        }
+        
+        </pre>
+<h2>B3., G1. Koko tiedosto</h2>
+<h3>GameOfLife/GameOfLife/GameOfLife.cs</h3>
+<div class='noprint'><a href="csdoc/html/GameOfLife_8cs_source.html">[V&auml;rillinen versio]</a> <a href="csdoc/html/GameOfLife_8cs.html">[Doc-muoto]</a> <a href="GameOfLife/GameOfLife/GameOfLife.cs">[Alkuper&auml;inen .cs]</a><br />
+</div><h2>B2, B3, G1 Naapureiden laskeminen ja s&auml;&auml;nn&ouml;t</h2>
+<h3>GameOfLife/GameOfLife/Sopulit2.cs</h3>
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 ﻿using System;
+<a name="l00002"></a>00002 <span class="keyword">using</span> System.Collections.Generic;
+<a name="l00003"></a>00003 <span class="keyword">using</span> System.Linq;
+<a name="l00004"></a>00004 <span class="keyword">using</span> System.Text;
+<a name="l00005"></a>00005 <span class="comment"></span>
+<a name="l00006"></a>00006 <span class="comment">/// @author: Vesa Lappalainen</span>
+<a name="l00007"></a>00007 <span class="comment">/// @version: 01.10.2011</span>
+<a name="l00008"></a>00008 <span class="comment">/// @version: 15.10.2011</span>
+<a name="l00009"></a>00009 <span class="comment">///</span>
+<a name="l00010"></a>00010 <span class="comment">/// &lt;summary&gt;</span>
+<a name="l00011"></a>00011 <span class="comment">/// Tutkitaan elämäpeliä. </span>
+<a name="l00012"></a>00012 <span class="comment">/// &lt;/summary&gt;</span>
+<a name="l00013"></a>00013 <span class="comment">/// &lt;remarks&gt;</span>
+<a name="l00014"></a>00014 <span class="comment">/// Säännöt ovat oletuksena b3s23 (born 3/stay 2,3), mutta </span>
+<a name="l00015"></a>00015 <span class="comment">/// saaannot-taulukolla voidaan</span>
+<a name="l00016"></a>00016 <span class="comment">/// viedä peliin muitakin sääntöjä.</span>
+<a name="l00017"></a>00017 <span class="comment">/// &lt;/remarks&gt;</span>
+<a name="l00018"></a><a class="code" href="csdoc/html/classSopulit2.html">00018</a> <span class="comment"></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="csdoc/html/classSopulit2.html" title="Tutkitaan elämäpeliä.">Sopulit2</a>
+<a name="l00019"></a>00019 {
+<a name="l00020"></a><a class="code" href="csdoc/html/classSopulit2.html#aa98f0e993969e5061213028ba07715c9">00020</a>     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">int</span>[,] <a class="code" href="csdoc/html/classSopulit2.html#aa98f0e993969e5061213028ba07715c9">b3s23</a> = 
+<a name="l00021"></a>00021                                {<span class="comment">//  0 1 2 3 4 5 6 7 8</span>
+<a name="l00022"></a>00022                                    {0,0,0,1,0,0,0,0,0}, <span class="comment">// born</span>
+<a name="l00023"></a>00023                                    {0,0,1,1,0,0,0,0,0}  <span class="comment">// stay</span>
+<a name="l00024"></a>00024                                };
+<a name="l00025"></a>00025 <span class="comment"></span>
+<a name="l00026"></a>00026 <span class="comment">    /// &lt;summary&gt;</span>
+<a name="l00027"></a>00027 <span class="comment">    /// Muodostaa seuraavan vaiheen menemällä taulukkoa </span>
+<a name="l00028"></a>00028 <span class="comment">    /// rivi kerrallaan ylhäältä alas ja vasemmalta oikealle.</span>
+<a name="l00029"></a>00029 <span class="comment">    /// Tulos tulee samaan taulukkoon jos seuraava = null.</span>
+<a name="l00030"></a>00030 <span class="comment">    /// &lt;/summary&gt;</span>
+<a name="l00031"></a>00031 <span class="comment">    /// &lt;param name=&quot;sukupolvi&quot;&gt;Nykyinen vaihe, josta tilanne lasketaan&lt;/param&gt;</span>
+<a name="l00032"></a>00032 <span class="comment">    /// &lt;param name=&quot;seuraava&quot;&gt;Vaihe, johon uusi vaihe lasketaan.  Jos == null,</span>
+<a name="l00033"></a>00033 <span class="comment">    /// niin vaihe lasketaan vaihe-taulukkoon.  Jos taulukoiden koot eivät</span>
+<a name="l00034"></a>00034 <span class="comment">    /// ole samat, käyteään pienemmän kokoa&lt;/param&gt;</span>
+<a name="l00035"></a>00035 <span class="comment">    /// &lt;param name=&quot;saannot&quot;&gt;2x8 taulukko siitä, millä naapurimäärillä herää</span>
+<a name="l00036"></a>00036 <span class="comment">    /// ja millä naapurimäärillä säilyy hengissä.&lt;/param&gt;</span>
+<a name="l00037"></a>00037 <span class="comment">    /// &lt;example&gt;</span>
+<a name="l00038"></a>00038 <span class="comment">    /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00039"></a>00039 <span class="comment">    ///   int[,] vaihe = {</span>
+<a name="l00040"></a>00040 <span class="comment">    ///                { 1,0,1,1 },</span>
+<a name="l00041"></a>00041 <span class="comment">    ///                { 0,1,1,0 },</span>
+<a name="l00042"></a>00042 <span class="comment">    ///                { 1,0,0,0 },</span>
+<a name="l00043"></a>00043 <span class="comment">    ///                { 1,0,0,1 }</span>
+<a name="l00044"></a>00044 <span class="comment">    ///              };</span>
+<a name="l00045"></a>00045 <span class="comment">    ///    SeuraavaSukupolvi(vaihe);</span>
+<a name="l00046"></a>00046 <span class="comment">    ///    Demo5.Sopulit.Jonoksi(vaihe,&quot; &quot;,&quot;,&quot;) === &quot;0 1 0 0,1 0 0 0,1 1 0 0,1 1 1 0&quot;;</span>
+<a name="l00047"></a>00047 <span class="comment">    ///    SeuraavaSukupolvi(vaihe);</span>
+<a name="l00048"></a>00048 <span class="comment">    ///    Demo5.Sopulit.Jonoksi(vaihe,&quot; &quot;,&quot;,&quot;) === &quot;0 0 0 0,1 1 0 0,0 0 1 0,0 1 1 0&quot;;</span>
+<a name="l00049"></a>00049 <span class="comment">    ///    SeuraavaSukupolvi(vaihe);</span>
+<a name="l00050"></a>00050 <span class="comment">    ///    Demo5.Sopulit.Jonoksi(vaihe,&quot; &quot;,&quot;,&quot;) === &quot;0 0 0 0,0 0 0 0,0 1 1 0,0 1 1 0&quot;;</span>
+<a name="l00051"></a>00051 <span class="comment">    /// &lt;/pre&gt;</span>
+<a name="l00052"></a>00052 <span class="comment">    /// &lt;/example&gt;</span>
+<a name="l00053"></a><a class="code" href="csdoc/html/classSopulit2.html#aec8a3d76c157cb417d9929dd1b3e6637">00053</a> <span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="csdoc/html/classSopulit2.html#aec8a3d76c157cb417d9929dd1b3e6637" title="Muodostaa seuraavan vaiheen menemällä taulukkoa rivi kerrallaan ylhäältä alas ja vasemmalta oikealle...">SeuraavaSukupolvi</a>(<span class="keywordtype">int</span>[,] sukupolvi, <span class="keywordtype">int</span>[,] seuraava = null,
+<a name="l00054"></a>00054                       <span class="keywordtype">int</span>[,] saannot = null)
+<a name="l00055"></a>00055     {
+<a name="l00056"></a>00056         <span class="keywordflow">if</span> (seuraava == null) seuraava = sukupolvi;
+<a name="l00057"></a>00057         <span class="keywordflow">if</span> (saannot == null) saannot = <a class="code" href="csdoc/html/classSopulit2.html#aa98f0e993969e5061213028ba07715c9">b3s23</a>;
+<a name="l00058"></a>00058         <span class="keywordtype">int</span> maxy = Math.Min(sukupolvi.GetLength(0), seuraava.GetLength(0));
+<a name="l00059"></a>00059         <span class="keywordtype">int</span> maxx = Math.Min(sukupolvi.GetLength(1), seuraava.GetLength(1));
+<a name="l00060"></a>00060         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iy = 0; iy &lt; maxy; iy++)
+<a name="l00061"></a>00061         {
+<a name="l00062"></a>00062             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = 0; ix &lt; maxx; ix++)
+<a name="l00063"></a>00063             {
+<a name="l00064"></a>00064                 <span class="keywordtype">int</span> arvo = sukupolvi[iy, ix];
+<a name="l00065"></a>00065                 <span class="keywordtype">int</span> naapureita = <a class="code" href="csdoc/html/classSopulit2.html#a4e2bc25f1c57d7716117d73ec91036f3" title="Laskee montako nollasta poikkeavaa naapuria on valitulla alkiolla.">LaskeNaapurit</a>(sukupolvi, iy, ix);
+<a name="l00066"></a>00066                 seuraava[iy, ix] = saannot[arvo, naapureita];
+<a name="l00067"></a>00067             }
+<a name="l00068"></a>00068         }
+<a name="l00069"></a>00069     }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="comment"></span>
+<a name="l00072"></a>00072 <span class="comment">    /// &lt;summary&gt;</span>
+<a name="l00073"></a>00073 <span class="comment">    /// Muodostaa seuraavan vaiheen menemällä taulukkoa </span>
+<a name="l00074"></a>00074 <span class="comment">    /// rivi kerrallaan ylhäältä alas ja vasemmalta oikealle.</span>
+<a name="l00075"></a>00075 <span class="comment">    /// Tulos tulee samaan taulukkoon jos seuraava = null.</span>
+<a name="l00076"></a>00076 <span class="comment">    /// Käyteään naapureita kuten toruksen pintaa.</span>
+<a name="l00077"></a>00077 <span class="comment">    /// &lt;/summary&gt;</span>
+<a name="l00078"></a>00078 <span class="comment">    /// &lt;param name=&quot;sukupolvi&quot;&gt;Nykyinen vaihe, josta tilanne lasketaan&lt;/param&gt;</span>
+<a name="l00079"></a>00079 <span class="comment">    /// &lt;param name=&quot;seuraava&quot;&gt;Vaihe, johon uusi vaihe lasketaan.  Jos == null,</span>
+<a name="l00080"></a>00080 <span class="comment">    /// niin vaihe lasketaan vaihe-taulukkoon.  Jos taulukoiden koot eivät</span>
+<a name="l00081"></a>00081 <span class="comment">    /// ole samat, käyteään pienemmän kokoa&lt;/param&gt;</span>
+<a name="l00082"></a>00082 <span class="comment">    /// &lt;param name=&quot;saannot&quot;&gt;2x8 taulukko siitä, millä naapurimäärillä herää</span>
+<a name="l00083"></a>00083 <span class="comment">    /// ja millä naapurimäärillä säilyy hengissä.&lt;/param&gt;</span>
+<a name="l00084"></a>00084 <span class="comment">    /// &lt;example&gt;</span>
+<a name="l00085"></a>00085 <span class="comment">    /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00086"></a>00086 <span class="comment">    ///   int[,] s1 = {</span>
+<a name="l00087"></a>00087 <span class="comment">    ///                { 1,0,1,1 },</span>
+<a name="l00088"></a>00088 <span class="comment">    ///                { 0,0,0,0 },</span>
+<a name="l00089"></a>00089 <span class="comment">    ///                { 1,0,0,0 },</span>
+<a name="l00090"></a>00090 <span class="comment">    ///                { 1,0,0,1 }</span>
+<a name="l00091"></a>00091 <span class="comment">    ///              };</span>
+<a name="l00092"></a>00092 <span class="comment">    ///    int[,] s2 = new int[4,4];  </span>
+<a name="l00093"></a>00093 <span class="comment">    ///                  //  0 1 2 3 4 5 6 7 8</span>
+<a name="l00094"></a>00094 <span class="comment">    ///    int[,] b02s1 = { {1,0,1,0,0,0,0,0,0}, // born</span>
+<a name="l00095"></a>00095 <span class="comment">    ///                     {0,1,0,0,0,0,0,0,0}  // stay</span>
+<a name="l00096"></a>00096 <span class="comment">    ///                   };</span>
+<a name="l00097"></a>00097 <span class="comment">    ///    SeuraavaSukupolviTorus(s1,s2,b02s1); </span>
+<a name="l00098"></a>00098 <span class="comment">    ///    Demo5.Sopulit.Jonoksi(s2,&quot; &quot;,&quot;,&quot;) === &quot;0 0 0 0,0 0 1 0,0 1 0 0,0 0 0 0&quot;;</span>
+<a name="l00099"></a>00099 <span class="comment">    ///    SeuraavaSukupolviTorus(s2,s1,b02s1);</span>
+<a name="l00100"></a>00100 <span class="comment">    ///    Demo5.Sopulit.Jonoksi(s1,&quot; &quot;,&quot;,&quot;) === &quot;1 0 0 0,0 1 1 0,0 1 1 0,0 0 0 1&quot;;</span>
+<a name="l00101"></a>00101 <span class="comment">    ///    SeuraavaSukupolviTorus(s1,s2,b02s1); </span>
+<a name="l00102"></a>00102 <span class="comment">    ///    Demo5.Sopulit.Jonoksi(s2,&quot; &quot;,&quot;,&quot;) === &quot;0 0 0 0,0 0 0 0,0 0 0 0,0 0 0 0&quot;;</span>
+<a name="l00103"></a>00103 <span class="comment">    ///    SeuraavaSukupolviTorus(s2,s1,b02s1);</span>
+<a name="l00104"></a>00104 <span class="comment">    ///    Demo5.Sopulit.Jonoksi(s1,&quot; &quot;,&quot;,&quot;) === &quot;1 1 1 1,1 1 1 1,1 1 1 1,1 1 1 1&quot;;</span>
+<a name="l00105"></a>00105 <span class="comment">    /// &lt;/pre&gt;</span>
+<a name="l00106"></a>00106 <span class="comment">    /// &lt;/example&gt;</span>
+<a name="l00107"></a><a class="code" href="csdoc/html/classSopulit2.html#aaf6a68a97285e041a1878b9278dd63d7">00107</a> <span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="csdoc/html/classSopulit2.html#aaf6a68a97285e041a1878b9278dd63d7" title="Muodostaa seuraavan vaiheen menemällä taulukkoa rivi kerrallaan ylhäältä alas ja vasemmalta oikealle...">SeuraavaSukupolviTorus</a>(<span class="keywordtype">int</span>[,] sukupolvi, <span class="keywordtype">int</span>[,] seuraava = null,
+<a name="l00108"></a>00108                       <span class="keywordtype">int</span>[,] saannot = null)
+<a name="l00109"></a>00109     {
+<a name="l00110"></a>00110         <span class="keywordflow">if</span> (seuraava == null) seuraava = sukupolvi;
+<a name="l00111"></a>00111         <span class="keywordflow">if</span> (saannot == null) saannot = <a class="code" href="csdoc/html/classSopulit2.html#aa98f0e993969e5061213028ba07715c9">b3s23</a>;
+<a name="l00112"></a>00112         <span class="keywordtype">int</span> maxy = Math.Min(sukupolvi.GetLength(0), seuraava.GetLength(0));
+<a name="l00113"></a>00113         <span class="keywordtype">int</span> maxx = Math.Min(sukupolvi.GetLength(1), seuraava.GetLength(1));
+<a name="l00114"></a>00114         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iy = 0; iy &lt; maxy; iy++)
+<a name="l00115"></a>00115         {
+<a name="l00116"></a>00116             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = 0; ix &lt; maxx; ix++)
+<a name="l00117"></a>00117             {
+<a name="l00118"></a>00118                 <span class="keywordtype">int</span> arvo = sukupolvi[iy, ix];
+<a name="l00119"></a>00119                 <span class="keywordtype">int</span> naapureita = <a class="code" href="csdoc/html/classSopulit2.html#a46253ec1c243066cd4c2a4bef9a29860" title="Laskee montako nollasta poikkeavaa naapuria on valitulla alkiolla. Naapuri otetaan reunojen tapaukses...">LaskeNaapuritTorus</a>(sukupolvi, iy, ix);
+<a name="l00120"></a>00120                 seuraava[iy, ix] = saannot[arvo, naapureita];
+<a name="l00121"></a>00121             }
+<a name="l00122"></a>00122         }
+<a name="l00123"></a>00123     }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 <span class="comment"></span>
+<a name="l00126"></a>00126 <span class="comment">    /// &lt;summary&gt;</span>
+<a name="l00127"></a>00127 <span class="comment">    /// Laskee montako nollasta poikkeavaa naapuria on valitulla alkiolla</span>
+<a name="l00128"></a>00128 <span class="comment">    /// &lt;/summary&gt;</span>
+<a name="l00129"></a>00129 <span class="comment">    /// &lt;param name=&quot;sukupolvi&quot;&gt;taulukko josta naapureita etsitään&lt;/param&gt;</span>
+<a name="l00130"></a>00130 <span class="comment">    /// &lt;param name=&quot;rivi&quot;&gt;minkä rivin naapureita etsitään&lt;/param&gt;</span>
+<a name="l00131"></a>00131 <span class="comment">    /// &lt;param name=&quot;sarake&quot;&gt;minkä sarakkeen naapureita etsitään&lt;/param&gt;</span>
+<a name="l00132"></a>00132 <span class="comment">    /// &lt;returns&gt;&lt;/returns&gt;</span>
+<a name="l00133"></a>00133 <span class="comment">    /// &lt;example&gt;</span>
+<a name="l00134"></a>00134 <span class="comment">    /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00135"></a>00135 <span class="comment">    ///   int[,] alku = {</span>
+<a name="l00136"></a>00136 <span class="comment">    ///                { 1,0,1,1,0 },</span>
+<a name="l00137"></a>00137 <span class="comment">    ///                { 0,1,1,0,0 },</span>
+<a name="l00138"></a>00138 <span class="comment">    ///                { 1,0,0,0,0 },</span>
+<a name="l00139"></a>00139 <span class="comment">    ///                { 1,0,0,0,0 }</span>
+<a name="l00140"></a>00140 <span class="comment">    ///              };</span>
+<a name="l00141"></a>00141 <span class="comment">    ///   LaskeNaapurit(alku,0,0) === 1;</span>
+<a name="l00142"></a>00142 <span class="comment">    ///   LaskeNaapurit(alku,3,0) === 1;</span>
+<a name="l00143"></a>00143 <span class="comment">    ///   LaskeNaapurit(alku,0,1) === 4;</span>
+<a name="l00144"></a>00144 <span class="comment">    ///   LaskeNaapurit(alku,2,2) === 2;</span>
+<a name="l00145"></a>00145 <span class="comment">    ///   LaskeNaapurit(alku,3,2) === 0;</span>
+<a name="l00146"></a>00146 <span class="comment">    /// &lt;/pre&gt;</span>
+<a name="l00147"></a>00147 <span class="comment">    /// &lt;/example&gt;</span>
+<a name="l00148"></a><a class="code" href="csdoc/html/classSopulit2.html#a4e2bc25f1c57d7716117d73ec91036f3">00148</a> <span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="csdoc/html/classSopulit2.html#a4e2bc25f1c57d7716117d73ec91036f3" title="Laskee montako nollasta poikkeavaa naapuria on valitulla alkiolla.">LaskeNaapurit</a>(<span class="keywordtype">int</span>[,] sukupolvi, <span class="keywordtype">int</span> rivi, <span class="keywordtype">int</span> sarake)
+<a name="l00149"></a>00149     {
+<a name="l00150"></a>00150         <span class="keywordtype">int</span> summa = 0;
+<a name="l00151"></a>00151         <span class="keywordtype">int</span> alkuy = rivi - 1;
+<a name="l00152"></a>00152         <span class="keywordtype">int</span> loppuy = rivi + 1;
+<a name="l00153"></a>00153         <span class="keywordtype">int</span> alkux = sarake - 1;
+<a name="l00154"></a>00154         <span class="keywordtype">int</span> loppux = sarake + 1;
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156         <span class="keywordflow">if</span> (alkuy &lt; 0) alkuy = 0;
+<a name="l00157"></a>00157         <span class="keywordflow">if</span> (loppuy &gt;= sukupolvi.GetLength(0)) loppuy = sukupolvi.GetLength(0) - 1;
+<a name="l00158"></a>00158         <span class="keywordflow">if</span> (alkux &lt; 0) alkux = 0;
+<a name="l00159"></a>00159         <span class="keywordflow">if</span> (loppux &gt;= sukupolvi.GetLength(1)) loppux = sukupolvi.GetLength(1) - 1;
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iy = alkuy; iy &lt;= loppuy; iy++)
+<a name="l00162"></a>00162             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = alkux; ix &lt;= loppux; ix++)
+<a name="l00163"></a>00163                 summa += sukupolvi[iy, ix];
+<a name="l00164"></a>00164         summa -= sukupolvi[rivi, sarake];
+<a name="l00165"></a>00165         <span class="keywordflow">return</span> summa;
+<a name="l00166"></a>00166     }
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168 <span class="comment"></span>
+<a name="l00169"></a>00169 <span class="comment">    /// &lt;summary&gt;</span>
+<a name="l00170"></a>00170 <span class="comment">    /// Laskee montako nollasta poikkeavaa naapuria on valitulla alkiolla.</span>
+<a name="l00171"></a>00171 <span class="comment">    /// Naapuri otetaan reunojen tapauksessa &quot;kiertämällä toiselle laidalle&quot; (=Torus).</span>
+<a name="l00172"></a>00172 <span class="comment">    /// &lt;/summary&gt;</span>
+<a name="l00173"></a>00173 <span class="comment">    /// &lt;param name=&quot;sukupolvi&quot;&gt;taulukko josta naapureita etsitään&lt;/param&gt;</span>
+<a name="l00174"></a>00174 <span class="comment">    /// &lt;param name=&quot;rivi&quot;&gt;minkä rivin naapureita etsitään&lt;/param&gt;</span>
+<a name="l00175"></a>00175 <span class="comment">    /// &lt;param name=&quot;sarake&quot;&gt;minkä sarakkeen naapureita etsitään&lt;/param&gt;</span>
+<a name="l00176"></a>00176 <span class="comment">    /// &lt;returns&gt;&lt;/returns&gt;</span>
+<a name="l00177"></a>00177 <span class="comment">    /// &lt;example&gt;</span>
+<a name="l00178"></a>00178 <span class="comment">    /// &lt;pre name=&quot;test&quot;&gt;</span>
+<a name="l00179"></a>00179 <span class="comment">    ///   int[,] alku = {</span>
+<a name="l00180"></a>00180 <span class="comment">    ///                { 1,0,1,1 },</span>
+<a name="l00181"></a>00181 <span class="comment">    ///                { 0,1,1,0 },</span>
+<a name="l00182"></a>00182 <span class="comment">    ///                { 1,0,0,0 },</span>
+<a name="l00183"></a>00183 <span class="comment">    ///                { 1,0,0,0 }</span>
+<a name="l00184"></a>00184 <span class="comment">    ///              };</span>
+<a name="l00185"></a>00185 <span class="comment">    ///   LaskeNaapuritTorus(alku,0,0) === 3;</span>
+<a name="l00186"></a>00186 <span class="comment">    ///   LaskeNaapuritTorus(alku,3,0) === 3;</span>
+<a name="l00187"></a>00187 <span class="comment">    ///   LaskeNaapuritTorus(alku,0,1) === 5;</span>
+<a name="l00188"></a>00188 <span class="comment">    ///   LaskeNaapuritTorus(alku,2,2) === 2;</span>
+<a name="l00189"></a>00189 <span class="comment">    ///   LaskeNaapuritTorus(alku,3,2) === 2;</span>
+<a name="l00190"></a>00190 <span class="comment">    /// &lt;/pre&gt;</span>
+<a name="l00191"></a>00191 <span class="comment">    /// &lt;/example&gt;</span>
+<a name="l00192"></a><a class="code" href="csdoc/html/classSopulit2.html#a46253ec1c243066cd4c2a4bef9a29860">00192</a> <span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="csdoc/html/classSopulit2.html#a46253ec1c243066cd4c2a4bef9a29860" title="Laskee montako nollasta poikkeavaa naapuria on valitulla alkiolla. Naapuri otetaan reunojen tapaukses...">LaskeNaapuritTorus</a>(<span class="keywordtype">int</span>[,] sukupolvi, <span class="keywordtype">int</span> rivi, <span class="keywordtype">int</span> sarake)
+<a name="l00193"></a>00193     {
+<a name="l00194"></a>00194         <span class="keywordtype">int</span> summa = 0;
+<a name="l00195"></a>00195         <span class="keywordtype">int</span> ny = sukupolvi.GetLength(0);
+<a name="l00196"></a>00196         <span class="keywordtype">int</span> nx = sukupolvi.GetLength(1);
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iy = rivi - 1; iy &lt;= rivi + 1; iy++)
+<a name="l00199"></a>00199         {
+<a name="l00200"></a>00200             <span class="keywordtype">int</span> ity = (iy + ny) % ny; <span class="comment">// iy toruksen pinnalla</span>
+<a name="l00201"></a>00201             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = sarake - 1; ix &lt;= sarake + 1; ix++)
+<a name="l00202"></a>00202             {
+<a name="l00203"></a>00203                 <span class="keywordtype">int</span> itx = (ix + nx) % nx; <span class="comment">// ix toruksen pinnalla // 0-5  5 % 6 = 5  7 % 6 = 1 </span>
+<a name="l00204"></a>00204                 summa += sukupolvi[ity, itx];
+<a name="l00205"></a>00205             }
+<a name="l00206"></a>00206         }
+<a name="l00207"></a>00207         summa -= sukupolvi[rivi, sarake];
+<a name="l00208"></a>00208         <span class="keywordflow">return</span> summa;
+<a name="l00209"></a>00209     }
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211 }
+</pre>
+<div class='noprint'><a href="csdoc/html/Sopulit2_8cs.html">[Doc-muoto]</a> <a href="GameOfLife/GameOfLife/Sopulit2.cs">[Alkuper&auml;inen .cs]</a><br />
+</div><h2>B4-5., G2-3. Parannuksia AngryLego-peliin</h2>
+<pre>
+
+Teht&auml;v&auml; B4-5
+============
+
+Kuvat ladattavaksi vain yhden kerran:
+  Kuvat esitell&auml;&auml;n metodien ulkopuolella:
+
+        private Image pallonKuva = LoadImage("Igor");
+        private Image pallonKuva2 = LoadImage("symbian");
+        private Image vihunKuva = LoadImage("Baby");
+        private Image seinanKuva = LoadImage("tiili");
+        private Image mailanKuva = LoadImage("maila3");
+  ...
+  k&auml;ytt&ouml;tilanteessa:
+        private PhysicsObject LuoVihollinen()
+        {
+        ...
+            vihu.Tag = "vihu";
+            vihu.Image = vihunKuva;
+        ...
+        }
+
+
+Pallot el&auml;v&auml;t vain max. 5 sekuntia:
+
+        /// Luodaan pallo "orrelle"
+        private PhysicsObject LuoPallo()
+        {
+            ...
+        }
+
+   Kun pallo pudotetaan, niin:
+
+        private void PudotaPallo()
+        {
+            ...
+            pallo.LifetimeLeft = TimeSpan.FromSeconds(5);
+        }
+
+Peliss&auml; voi pudottaa vain 10 palloa (voitava muuttaa yhdest&auml; paikkaa koodista joksikin muuksikin.
+  Toteutettu niin, ett&auml; pudotettavat pallot ilmoitetaan jo tasoa kuvaavassa taulukossa:
+
+        private static String[] taso1 = {
+                  "                        ",
+                  "     ooosooso           ",
+                  "     ----------         ",
+        ...
+            tiles['o'] = LuoPallo;
+            tiles['s'] = LuoPallo2;
+        ...
+  Tehd&auml;&auml;n my&ouml;s attribuutiksi lista pudotettavista palloista:
+
+        private List&lt;PhysicsObject&gt; pallot = new List<PhysicsObject>();
+
+  Kun pallo luodaan tuolta merkkijonotaulukosta, niin se lis&auml;t&auml;&auml;n se
+  tuonne listaan pallot:
+
+        private PhysicsObject LuoPallo()
+        {
+            PhysicsObject pallo = new PhysicsObject(tileWidth, tileWidth, Shape.Circle);
+            pallo.Image = pallonKuva;
+            Add(pallo);
+            pallo.Tag = "pallo";
+            pallot.Add(pallo);
+            ...
+        }
+
+
+  Kun pallo pudotetaan, niin otetaan se pallot-listasta ja ja siirret&auml;&auml;n
+  "pudotuspaikalle"
+        private void PudotaPallo()
+        {
+            if (pallot.Count &lt;= 0) return;
+            PhysicsObject pallo = pallot[0];
+            pallot.Remove(pallo);
+            if (pallot.Count == 0) pallo.Destroyed += delegate { TasoPelattu(); };
+            pallo.MoveTo(maila.Position + new Vector(tileWidth * 0.6, maila.Height + tileWidth), tileWidth * 10);
+            //    pallo.Hit(new Vector(-300, 0));
+            pallo.LifetimeLeft = TimeSpan.FromSeconds(8);
+        }
+
+Pistelaskuri, pallon osumasta viholliseen saa 100 pistett&auml;
+ja sein&auml;n takia r&auml;j&auml;ht&auml;neest&auml; vihollisesta 50 pistett&auml;.
+
+        private IntMeter pisteet = new IntMeter(0);  // attribuutti
+        private Label pisteNaytto;
+        ...
+        private void LuoNaytot()
+        {
+            pisteet.MinValue = -500;
+            pisteNaytto = LuoNaytto("Points: {0:00000}",pisteet,0);
+            LuoNaytto("Level: {0:0}",tasoNr,1);
+            LuoNaytto("Enemy: {0:00}", vihollisia, 2);
+        }
+
+        private Label LuoNaytto(string format, IntMeter mittari, int n)
+        {
+            Label naytto = new Label(format);
+            naytto.Width = 150;
+            naytto.PreferredSize = new Vector(150, naytto.Height);
+            naytto.SizeMode = TextSizeMode.None;
+            naytto.Position = new Vector(Screen.Right - naytto.Width / 2 - 20,
+                                   Screen.Top - naytto.Height / 2 - n * naytto.Height);
+            naytto.IntFormatString = format;
+            naytto.BindTo(mittari);
+            naytto.Color = Color.Yellow;
+            naytto.BorderColor = Color.Black;
+            Add(naytto);
+            return naytto;
+        }
+
+        private PhysicsObject LuoVihollinen()
+        {
+        ...
+            AddCollisionHandler(vihu, "rakenne", delegate { Possauta(vihu); pisteet.Value += 50; });
+            AddCollisionHandler(vihu, "pallo", delegate { Possauta(vihu); pisteet.Value += 100; });
+            AddCollisionHandler(vihu, "pallo2", delegate { Possauta(vihu, true); pisteet.Value += 200; });
+            return vihu;
+        }
+
+V&auml;lill&auml; syntyykin r&auml;j&auml;ht&auml;vi&auml; Symbian-k&auml;nnyk&ouml;it&auml; (paineaalto mukana)
+ Hoidettu niin, ett&auml; tason merkkijonotaulukossa on symbian merkkej&auml; s
+
+         private static String[] taso1 = {
+                  "                        ",
+                  "     ooosooso           ",
+                  "     ----------         ",
+
+ joista luodaan Pallo2
+        private PhysicsObject LuoPallo2()
+        { ...
+
+ ja vihollisen luonnissa laitetaan paineaalto possautukseen ja ennem&auml;n pisteit&auml;:
+
+        private PhysicsObject LuoVihollinen()
+        {
+           ...
+           AddCollisionHandler(vihu, "pallo2", delegate { Possauta(vihu, true); pisteet.Value += 200; });
+           ...
+        }
+
+ r&auml;j&auml;hdys tulee siit&auml;, ett&auml; palloa luodessa laitetaan sen elinaika ja
+ sen tuhoutumisessa laitetaan pallo "liekitt&auml;m&auml;&auml;n":
+ 
+        private PhysicsObject LuoPallo2()
+        {
+            PhysicsObject pallo = new PhysicsObject(tileWidth * 0.6, tileWidth, Shape.Circle);
+            ...
+            pallo.Destroyed += delegate { Liekita(pallo, false, 2); };
+            pallot.Add(pallo);
+            AddCollisionHandler(pallo, "rakenne", Pallo2OsuiRakenteeseen);
+            return pallo;
+        }
+
+
+Teht&auml;v&auml; G2:
+===========
+
+Yksitt&auml;inen sein&auml;- tai kattoelementti r&auml;j&auml;ht&auml;&auml; pois, jos siihen tulee 4 osumaa pallosta.
+Tehd&auml;&auml;n kokonaan uusi luokka, joka laskee omaa kestoaan, vaihtaa kuvaa
+aina kun kesto muuttuu.  Osuma-metodilla voidaan ilmoittaa oliolle
+osumasta ja jos aikaa edellisest&auml; osumasta on liian v&auml;h&auml;n, ei tehd&auml;
+mit&auml;&auml;n.  Jos tarpeeksi, v&auml;hennet&auml;&auml;n kestoa (ja vaihdetaan kuvaa)
+ja palautetaan tieto ett&auml; osuma hyv&auml;ksyttiin.
+
+    public class SarkyvaRakenne : PhysicsObject
+    {
+        public int Kesto { get { return kesto; } set { SetKesto(value); } }
+        private int kesto = 0;
+
+        public Image[] Kuvat { get { return kuvat; } set { kuvat = value; if (kuvat != null) Kesto = kuvat.Length - 1; } }
+        private Image[] kuvat;
+
+        public double OsumienMinVali { get; set; }
+
+        private TimeSpan edellinenOsuma;
+
+        public SarkyvaRakenne(double width, double height) : base(width, height)
+        {
+            OsumienMinVali = 2.0;
+        }
+
+
+        protected virtual void SetKesto(int value)
+        {
+            kesto = value;
+            if (Kuvat == null) return;
+            Image = Kuvat[Math.Max(0, Math.Min(Kuvat.Length - 1, Kuvat.Length - 1 - Kesto))];
+        }
+
+
+        public bool Osuma(int maara = 1)
+        {
+            TimeSpan aika = Jypeli.Game.Time.SinceStartOfGame;
+            TimeSpan dt = aika - edellinenOsuma;
+            if (dt.TotalSeconds &lt; OsumienMinVali) return false;
+            edellinenOsuma = aika;
+            Kesto -= maara;
+            Size *= 0.95;
+            return (Kesto &lt; 0);
+        }
+    }
+
+ Sitten osuman tullessa katsotaan oliko se jo viimeinen ja jos oli, r&auml;j&auml;ytet&auml;&auml;n
+ sein&auml;.  Sein&auml; r&auml;j&auml;ytet&auml;&auml;n jo 1. osumasta mik&auml;li viholliset ovat loppu.
+
+        private void PalloOsuiRakenteeseen(IPhysicsObject pallo, IPhysicsObject rakenne)
+        {
+            int kerroin = 1;
+            pisteet.Value += 1;
+            if (!((SarkyvaRakenne)rakenne).Osuma() && vihollisia.Value &gt; 0) return;
+            if (vihollisia.Value &lt;= 0) kerroin = 2;
+            Possauta(rakenne);
+            pisteet.Value += 10*kerroin;
+        }
+
+ Symbian-k&auml;nnykk&auml; t&ouml;rm&auml;yksessa muuten samoin, mutta aina r&auml;j&auml;ytet&auml;&auml;n.
+
+ Seini&auml; ja kattoja varten on luotu kuvat:
+ 
+        private static Image[] tiilenKuvat = Game.LoadImages("tiili", "tiili2", "tiili3");
+        private static Image[] katonKuvat = Game.LoadImages("tiili", "tiili1", "tiili2", "tiili3");
+
+ joita k&auml;ytet&auml;&auml;n rakenteita luodessa:
+
+        private PhysicsObject LuoSeina()
+        {
+            SarkyvaRakenne seina = new SarkyvaRakenne(tileWidth, tileHeight);
+            seina.Color = Color.Wheat;
+            seina.Tag = "rakenne";
+            seina.Kuvat = tiilenKuvat;
+            return seina;
+        }
+
+        private PhysicsObject LuoKatto()
+        {
+            SarkyvaRakenne katto = new SarkyvaRakenne(tileWidth * 1.5, tileHeight);
+            katto.Color = Color.Red;
+            katto.Tag = "rakenne";
+            katto.Kuvat = katonKuvat;
+            return katto;
+        }
+
+Teht&auml;v&auml; G3:
+===========
+
+Jos kent&auml;n kaikki viholliset tuhottu, tulee uusi erilainen kentt&auml;. 
+Kun 3 kentt&auml;&auml; pelattu, peli p&auml;&auml;ttyy ja tulee "TopTen"-lista.
+
+ Kutakin kentt&auml;&auml; varten on tehty oma taulukko:
+        private static String[] taso0 = {
+                  "                        ",
+                  "     oos                ",
+                  "     ----------         ",
+
+      ...
+        private static String[] taso1 = {
+                  "                        ",
+                  "     ooosooso           ",
+                  "     ----------         ",
+      ...
+        private static String[] taso2 = {
+                  "                        ",
+                  "     ooo                ",
+                  "     ----------         ",
+                  "                        ",
+      ...
+
+  Kent&auml;t on sitten koottu yhteen taulukkoon:
+
+        private static string[][] tasolista = { taso0, taso1, taso2, taso3 };
+
+  Sitten on tehty tasolaskuri:
+  
+        private IntMeter tasoNr = new IntMeter(0, 0, 10);
+
+  Begin-metodia kutsutaan vain kun ohjelma k&auml;ynnistyy:
+
+        public override void Begin()
+        {
+           .. ladataan koko pelin pysyvi&auml; olioita ...
+            AloitaUusiPeli();
+        }
+
+  Aloita uusi taso kutsutaan mm. F5 painalluksesta tai kun
+  TopTen on n&auml;ytetty
+
+        public void AloitaUusiPeli()
+        {
+            pisteet.Value = 0;
+            tasoNr.Value = 0;
+            UusiTaso();
+        }
+
+  Uusi taso tarkastaa onko tasoja en&auml;&auml; j&auml;ljell&auml;. Sitten otetaan
+  tasolistasta seuraavan tason "kuvaus"
+
+        public void UusiTaso()
+        {
+
+            ClearGameObjects();
+            ClearControls();
+            pallot.Clear();
+
+            System.GC.Collect();
+            vihollisia.Value = 0;
+
+            tasoNr.Value++;
+            if (tasoNr.Value &gt; tasolista.Length)
+            {
+                NaytaIlmoitus("All levels completed!", Color.Yellow);
+                return;
+            }
+            ClearAll();
+            int index = tasoNr.Value - 1;
+            string[] tasonKuva = tasolista[index];
+            ...
+            tiles = TileMap.FromStringArray(tasonKuva);
+            ...
+            // suurin osa koodista joka oli ennen Begin-metodissa
+        }
+        
+ Pallon pudottamisessa viimeisen pallon pudottamisen yhteydess&auml; pallon
+ tuhoutumistapahtumaan list&auml;&auml;n tieto uuden tason valmistumisesta:
+ 
+         private void PudotaPallo()
+        {
+            PhysicsObject pallo = pallot[0];
+            pallot.Remove(pallo);
+            if (pallot.Count == 0) pallo.Destroyed += delegate { TasoPelattu(); };
+            ...
+        }
+
+ Ja kun tuo viimeinen pallo tuhoutuu, menn&auml;&auml;n siis TasoPelattu-metodiin, jossa
+ siiryt&auml;&auml;n seuraavalle tasolle jos viholliset saatiin, muuten lopetetaan peli.
+
+        private void TasoPelattu()
+        {
+            if (vihollisia.Value &lt;= 0)
+            {
+                UusiTaso();
+                return;
+            }
+            NaytaIlmoitus("Game over!", Color.Pink);
+        }
+
+ Nyt kenttien lis&auml;&auml;miseksi riitt&auml;&auml; tehd&auml; vaan niit&auml; vastaavia merkkijonotaulukkoja
+ ja lis&auml;t&auml; ne tasolistaan.  Taso n&auml;ytet&auml;&auml;n my&ouml;s Labelissa automaattisesti kun
+ tason numero vaihtuu:
+
+        private void LuoNaytot()
+        {
+        ...
+            LuoNaytto("Level: {0:0}",tasoNr,1);
+        ...
+        }
+
+
+ N&auml;yt&auml; ilmoitus n&auml;ytt&auml;&auml; teksin ja TopTen-listan ja siirryt&auml;&auml;n uuten peliin:
+
+        private void NaytaIlmoitus(string teksti, Color vari)
+        {
+            Label label = new Label(teksti);
+            label.Font = Font.DefaultLargeBold;
+            label.Width = 400;
+            label.Height = 200;
+            label.Color = vari;
+            label.BorderColor = Color.Black;
+            Add(label);
+            ClearControls();
+            AsetaJatkoOhjaimet(label);
+            HighScoreWindow topIkkuna = new HighScoreWindow("Top 10",
+                                         "Congratulations! You got %p points! Give you name:",
+                                         topLista, pisteet);
+            topIkkuna.Closed += delegate { DataStorage.Save&lt;ScoreList&gt;(topLista, "pisteet.xml"); AloitaUusiPeli(); };
+            Add(topIkkuna);
+        }
+
+ TopTen listan takia on lis&auml;tty tuo em. n&auml;ytt&auml;minen, ja n&auml;ytt&ouml;ikkunan sulkeutumisen j&auml;lkeen
+ tallentaminen. Itse topLista on laitettu attribuutiksi:
+
+         private ScoreList topLista = new ScoreList(10, false, 0);
+
+ sek&auml; listan lataaminen tiedostosta Begin-metodiin.
+
+         public override void Begin()
+        {
+        ...
+            if (DataStorage.Exists("pisteet.xml"))
+                topLista = DataStorage.Load&lt;ScoreList&gt;(topLista, "pisteet.xml");
+        ...
+        }
+
+
+
+
+</pre>
+<h2>B4-5., G2-3. Koko tiedosto</h2>
+<h3>AngryLego/AngryLego/AngryLego.cs</h3>
+<div class='noprint'><a href="csdoc/html/AngryLego_8cs_source.html">[V&auml;rillinen versio]</a> <a href="csdoc/html/AngryLego_8cs.html">[Doc-muoto]</a> <a href="AngryLego/AngryLego/AngryLego.cs">[Alkuper&auml;inen .cs]</a><br />
+</div></BODY>
+</HTML>

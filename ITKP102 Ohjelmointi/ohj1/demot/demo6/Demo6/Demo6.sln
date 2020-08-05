@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D6_TaunoKaantaaTaulukonPainVastoin", "D6_TaunoKaantaaTaulukonPainVastoin\D6_TaunoKaantaaTaulukonPainVastoin.csproj", "{7D748B4E-8542-48A8-A7EF-9E359590CBCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D6_TaunoVaihtaaTaulukonPareittain", "D6_TaunoVaihtaaTaulukonPareittain\D6_TaunoVaihtaaTaulukonPareittain.csproj", "{082CCF02-3C2F-4FAC-98B0-4AE1987565F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D6_TaunoKayTaulukkoaLapi", "D6_TaunoKayTaulukkoaLapi\D6_TaunoKayTaulukkoaLapi.csproj", "{D980EB27-3466-4E2A-863D-39CDC14ED8B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D6_2b_Etaisyys", "D6_2b_Etaisyys\D6_2b_Etaisyys.csproj", "{6604A7AA-AC12-43C4-BAF1-A87381E0F6B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D6_4_pisteidenValinenEtaisyys", "D6_4_pisteidenValinenEtaisyys\D6_4_pisteidenValinenEtaisyys.csproj", "{FD4640DC-4F53-4A3C-831B-2079B4C026E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D6_6_SkaalainValille_0_1", "D6_6_SkaalainValille_0_1\D6_6_SkaalainValille_0_1.csproj", "{BD371CB9-DC94-4584-8BE7-F9F3FA0A9505}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Debug|x86.ActiveCfg = Debug|x86
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Debug|x86.Build.0 = Debug|x86
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Release|x86.ActiveCfg = Release|x86
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Release|x86.Build.0 = Release|x86
+		{082CCF02-3C2F-4FAC-98B0-4AE1987565F5}.Debug|x86.ActiveCfg = Debug|x86
+		{082CCF02-3C2F-4FAC-98B0-4AE1987565F5}.Debug|x86.Build.0 = Debug|x86
+		{082CCF02-3C2F-4FAC-98B0-4AE1987565F5}.Release|x86.ActiveCfg = Release|x86
+		{082CCF02-3C2F-4FAC-98B0-4AE1987565F5}.Release|x86.Build.0 = Release|x86
+		{D980EB27-3466-4E2A-863D-39CDC14ED8B4}.Debug|x86.ActiveCfg = Debug|x86
+		{D980EB27-3466-4E2A-863D-39CDC14ED8B4}.Debug|x86.Build.0 = Debug|x86
+		{D980EB27-3466-4E2A-863D-39CDC14ED8B4}.Release|x86.ActiveCfg = Release|x86
+		{D980EB27-3466-4E2A-863D-39CDC14ED8B4}.Release|x86.Build.0 = Release|x86
+		{6604A7AA-AC12-43C4-BAF1-A87381E0F6B8}.Debug|x86.ActiveCfg = Debug|x86
+		{6604A7AA-AC12-43C4-BAF1-A87381E0F6B8}.Debug|x86.Build.0 = Debug|x86
+		{6604A7AA-AC12-43C4-BAF1-A87381E0F6B8}.Release|x86.ActiveCfg = Release|x86
+		{6604A7AA-AC12-43C4-BAF1-A87381E0F6B8}.Release|x86.Build.0 = Release|x86
+		{FD4640DC-4F53-4A3C-831B-2079B4C026E9}.Debug|x86.ActiveCfg = Debug|x86
+		{FD4640DC-4F53-4A3C-831B-2079B4C026E9}.Debug|x86.Build.0 = Debug|x86
+		{FD4640DC-4F53-4A3C-831B-2079B4C026E9}.Release|x86.ActiveCfg = Release|x86
+		{FD4640DC-4F53-4A3C-831B-2079B4C026E9}.Release|x86.Build.0 = Release|x86
+		{BD371CB9-DC94-4584-8BE7-F9F3FA0A9505}.Debug|x86.ActiveCfg = Debug|x86
+		{BD371CB9-DC94-4584-8BE7-F9F3FA0A9505}.Debug|x86.Build.0 = Debug|x86
+		{BD371CB9-DC94-4584-8BE7-F9F3FA0A9505}.Release|x86.ActiveCfg = Release|x86
+		{BD371CB9-DC94-4584-8BE7-F9F3FA0A9505}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0215036E-7128-4B21-858E-B23FB234E843}
+	EndGlobalSection
+EndGlobal

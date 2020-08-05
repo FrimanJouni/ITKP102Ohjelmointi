@@ -1,0 +1,396 @@
+
+Teht‰v‰ B4-5
+============
+
+Kuvat ladattavaksi vain yhden kerran:
+  Kuvat esitell‰‰n metodien ulkopuolella:
+
+        private Image pallonKuva = LoadImage("Igor");
+        private Image pallonKuva2 = LoadImage("symbian");
+        private Image vihunKuva = LoadImage("Baby");
+        private Image seinanKuva = LoadImage("tiili");
+        private Image mailanKuva = LoadImage("maila3");
+  ...
+  k‰yttˆtilanteessa:
+        private PhysicsObject LuoVihollinen()
+        {
+        ...
+            vihu.Tag = "vihu";
+            vihu.Image = vihunKuva;
+        ...
+        }
+
+
+Pallot el‰v‰t vain max. 5 sekuntia:
+
+        /// Luodaan pallo "orrelle"
+        private PhysicsObject LuoPallo()
+        {
+            ...
+        }
+
+   Kun pallo pudotetaan, niin:
+
+        private void PudotaPallo()
+        {
+            ...
+            pallo.LifetimeLeft = TimeSpan.FromSeconds(5);
+        }
+
+Peliss‰ voi pudottaa vain 10 palloa (voitava muuttaa yhdest‰ paikkaa koodista joksikin muuksikin.
+  Toteutettu niin, ett‰ pudotettavat pallot ilmoitetaan jo tasoa kuvaavassa taulukossa:
+
+        private static String[] taso1 = {
+                  "                        ",
+                  "     ooosooso           ",
+                  "     ----------         ",
+        ...
+            tiles['o'] = LuoPallo;
+            tiles['s'] = LuoPallo2;
+        ...
+  Tehd‰‰n myˆs attribuutiksi lista pudotettavista palloista:
+
+        private List<PhysicsObject> pallot = new List<PhysicsObject>();
+
+  Kun pallo luodaan tuolta merkkijonotaulukosta, niin se lis‰t‰‰n se
+  tuonne listaan pallot:
+
+        private PhysicsObject LuoPallo()
+        {
+            PhysicsObject pallo = new PhysicsObject(tileWidth, tileWidth, Shape.Circle);
+            pallo.Image = pallonKuva;
+            Add(pallo);
+            pallo.Tag = "pallo";
+            pallot.Add(pallo);
+            ...
+        }
+
+
+  Kun pallo pudotetaan, niin otetaan se pallot-listasta ja ja siirret‰‰n
+  "pudotuspaikalle"
+        private void PudotaPallo()
+        {
+            if (pallot.Count <= 0) return;
+            PhysicsObject pallo = pallot[0];
+            pallot.Remove(pallo);
+            if (pallot.Count == 0) pallo.Destroyed += delegate { TasoPelattu(); };
+            pallo.MoveTo(maila.Position + new Vector(tileWidth * 0.6, maila.Height + tileWidth), tileWidth * 10);
+            //    pallo.Hit(new Vector(-300, 0));
+            pallo.LifetimeLeft = TimeSpan.FromSeconds(8);
+        }
+
+Pistelaskuri, pallon osumasta viholliseen saa 100 pistett‰
+ja sein‰n takia r‰j‰ht‰neest‰ vihollisesta 50 pistett‰.
+
+        private IntMeter pisteet = new IntMeter(0);  // attribuutti
+        private Label pisteNaytto;
+        ...
+        private void LuoNaytot()
+        {
+            pisteet.MinValue = -500;
+            pisteNaytto = LuoNaytto("Points: {0:00000}",pisteet,0);
+            LuoNaytto("Level: {0:0}",tasoNr,1);
+            LuoNaytto("Enemy: {0:00}", vihollisia, 2);
+        }
+
+        private Label LuoNaytto(string format, IntMeter mittari, int n)
+        {
+            Label naytto = new Label(format);
+            naytto.Width = 150;
+            naytto.PreferredSize = new Vector(150, naytto.Height);
+            naytto.SizeMode = TextSizeMode.None;
+            naytto.Position = new Vector(Screen.Right - naytto.Width / 2 - 20,
+                                   Screen.Top - naytto.Height / 2 - n * naytto.Height);
+            naytto.IntFormatString = format;
+            naytto.BindTo(mittari);
+            naytto.Color = Color.Yellow;
+            naytto.BorderColor = Color.Black;
+            Add(naytto);
+            return naytto;
+        }
+
+        private PhysicsObject LuoVihollinen()
+        {
+        ...
+            AddCollisionHandler(vihu, "rakenne", delegate { Possauta(vihu); pisteet.Value += 50; });
+            AddCollisionHandler(vihu, "pallo", delegate { Possauta(vihu); pisteet.Value += 100; });
+            AddCollisionHandler(vihu, "pallo2", delegate { Possauta(vihu, true); pisteet.Value += 200; });
+            return vihu;
+        }
+
+V‰lill‰ syntyykin r‰j‰ht‰vi‰ Symbian-k‰nnykˆit‰ (paineaalto mukana)
+ Hoidettu niin, ett‰ tason merkkijonotaulukossa on symbian merkkej‰ s
+
+         private static String[] taso1 = {
+                  "                        ",
+                  "     ooosooso           ",
+                  "     ----------         ",
+
+ joista luodaan Pallo2
+        private PhysicsObject LuoPallo2()
+        { ...
+
+ ja vihollisen luonnissa laitetaan paineaalto possautukseen ja ennem‰n pisteit‰:
+
+        private PhysicsObject LuoVihollinen()
+        {
+           ...
+           AddCollisionHandler(vihu, "pallo2", delegate { Possauta(vihu, true); pisteet.Value += 200; });
+           ...
+        }
+
+ r‰j‰hdys tulee siit‰, ett‰ palloa luodessa laitetaan sen elinaika ja
+ sen tuhoutumisessa laitetaan pallo "liekitt‰m‰‰n":
+ 
+        private PhysicsObject LuoPallo2()
+        {
+            PhysicsObject pallo = new PhysicsObject(tileWidth * 0.6, tileWidth, Shape.Circle);
+            ...
+            pallo.Destroyed += delegate { Liekita(pallo, false, 2); };
+            pallot.Add(pallo);
+            AddCollisionHandler(pallo, "rakenne", Pallo2OsuiRakenteeseen);
+            return pallo;
+        }
+
+
+Teht‰v‰ G2:
+===========
+
+Yksitt‰inen sein‰- tai kattoelementti r‰j‰ht‰‰ pois, jos siihen tulee 4 osumaa pallosta.
+Tehd‰‰n kokonaan uusi luokka, joka laskee omaa kestoaan, vaihtaa kuvaa
+aina kun kesto muuttuu.  Osuma-metodilla voidaan ilmoittaa oliolle
+osumasta ja jos aikaa edellisest‰ osumasta on liian v‰h‰n, ei tehd‰
+mit‰‰n.  Jos tarpeeksi, v‰hennet‰‰n kestoa (ja vaihdetaan kuvaa)
+ja palautetaan tieto ett‰ osuma hyv‰ksyttiin.
+
+    public class SarkyvaRakenne : PhysicsObject
+    {
+        public int Kesto { get { return kesto; } set { SetKesto(value); } }
+        private int kesto = 0;
+
+        public Image[] Kuvat { get { return kuvat; } set { kuvat = value; if (kuvat != null) Kesto = kuvat.Length - 1; } }
+        private Image[] kuvat;
+
+        public double OsumienMinVali { get; set; }
+
+        private TimeSpan edellinenOsuma;
+
+        public SarkyvaRakenne(double width, double height) : base(width, height)
+        {
+            OsumienMinVali = 2.0;
+        }
+
+
+        protected virtual void SetKesto(int value)
+        {
+            kesto = value;
+            if (Kuvat == null) return;
+            Image = Kuvat[Math.Max(0, Math.Min(Kuvat.Length - 1, Kuvat.Length - 1 - Kesto))];
+        }
+
+
+        public bool Osuma(int maara = 1)
+        {
+            TimeSpan aika = Jypeli.Game.Time.SinceStartOfGame;
+            TimeSpan dt = aika - edellinenOsuma;
+            if (dt.TotalSeconds < OsumienMinVali) return false;
+            edellinenOsuma = aika;
+            Kesto -= maara;
+            Size *= 0.95;
+            return (Kesto < 0);
+        }
+    }
+
+ Sitten osuman tullessa katsotaan oliko se jo viimeinen ja jos oli, r‰j‰ytet‰‰n
+ sein‰.  Sein‰ r‰j‰ytet‰‰n jo 1. osumasta mik‰li viholliset ovat loppu.
+
+        private void PalloOsuiRakenteeseen(IPhysicsObject pallo, IPhysicsObject rakenne)
+        {
+            int kerroin = 1;
+            pisteet.Value += 1;
+            if (!((SarkyvaRakenne)rakenne).Osuma() && vihollisia.Value > 0) return;
+            if (vihollisia.Value <= 0) kerroin = 2;
+            Possauta(rakenne);
+            pisteet.Value += 10*kerroin;
+        }
+
+ Symbian-k‰nnykk‰ tˆrm‰yksessa muuten samoin, mutta aina r‰j‰ytet‰‰n.
+
+ Seini‰ ja kattoja varten on luotu kuvat:
+ 
+        private static Image[] tiilenKuvat = Game.LoadImages("tiili", "tiili2", "tiili3");
+        private static Image[] katonKuvat = Game.LoadImages("tiili", "tiili1", "tiili2", "tiili3");
+
+ joita k‰ytet‰‰n rakenteita luodessa:
+
+        private PhysicsObject LuoSeina()
+        {
+            SarkyvaRakenne seina = new SarkyvaRakenne(tileWidth, tileHeight);
+            seina.Color = Color.Wheat;
+            seina.Tag = "rakenne";
+            seina.Kuvat = tiilenKuvat;
+            return seina;
+        }
+
+        private PhysicsObject LuoKatto()
+        {
+            SarkyvaRakenne katto = new SarkyvaRakenne(tileWidth * 1.5, tileHeight);
+            katto.Color = Color.Red;
+            katto.Tag = "rakenne";
+            katto.Kuvat = katonKuvat;
+            return katto;
+        }
+
+Teht‰v‰ G3:
+===========
+
+Jos kent‰n kaikki viholliset tuhottu, tulee uusi erilainen kentt‰. 
+Kun 3 kentt‰‰ pelattu, peli p‰‰ttyy ja tulee "TopTen"-lista.
+
+ Kutakin kentt‰‰ varten on tehty oma taulukko:
+        private static String[] taso0 = {
+                  "                        ",
+                  "     oos                ",
+                  "     ----------         ",
+
+      ...
+        private static String[] taso1 = {
+                  "                        ",
+                  "     ooosooso           ",
+                  "     ----------         ",
+      ...
+        private static String[] taso2 = {
+                  "                        ",
+                  "     ooo                ",
+                  "     ----------         ",
+                  "                        ",
+      ...
+
+  Kent‰t on sitten koottu yhteen taulukkoon:
+
+        private static string[][] tasolista = { taso0, taso1, taso2, taso3 };
+
+  Sitten on tehty tasolaskuri:
+  
+        private IntMeter tasoNr = new IntMeter(0, 0, 10);
+
+  Begin-metodia kutsutaan vain kun ohjelma k‰ynnistyy:
+
+        public override void Begin()
+        {
+           .. ladataan koko pelin pysyvi‰ olioita ...
+            AloitaUusiPeli();
+        }
+
+  Aloita uusi taso kutsutaan mm. F5 painalluksesta tai kun
+  TopTen on n‰ytetty
+
+        public void AloitaUusiPeli()
+        {
+            pisteet.Value = 0;
+            tasoNr.Value = 0;
+            UusiTaso();
+        }
+
+  Uusi taso tarkastaa onko tasoja en‰‰ j‰ljell‰. Sitten otetaan
+  tasolistasta seuraavan tason "kuvaus"
+
+        public void UusiTaso()
+        {
+
+            ClearGameObjects();
+            ClearControls();
+            pallot.Clear();
+
+            System.GC.Collect();
+            vihollisia.Value = 0;
+
+            tasoNr.Value++;
+            if (tasoNr.Value > tasolista.Length)
+            {
+                NaytaIlmoitus("All levels completed!", Color.Yellow);
+                return;
+            }
+            ClearAll();
+            int index = tasoNr.Value - 1;
+            string[] tasonKuva = tasolista[index];
+            ...
+            tiles = TileMap.FromStringArray(tasonKuva);
+            ...
+            // suurin osa koodista joka oli ennen Begin-metodissa
+        }
+        
+ Pallon pudottamisessa viimeisen pallon pudottamisen yhteydess‰ pallon
+ tuhoutumistapahtumaan list‰‰n tieto uuden tason valmistumisesta:
+ 
+         private void PudotaPallo()
+        {
+            PhysicsObject pallo = pallot[0];
+            pallot.Remove(pallo);
+            if (pallot.Count == 0) pallo.Destroyed += delegate { TasoPelattu(); };
+            ...
+        }
+
+ Ja kun tuo viimeinen pallo tuhoutuu, menn‰‰n siis TasoPelattu-metodiin, jossa
+ siiryt‰‰n seuraavalle tasolle jos viholliset saatiin, muuten lopetetaan peli.
+
+        private void TasoPelattu()
+        {
+            if (vihollisia.Value <= 0)
+            {
+                UusiTaso();
+                return;
+            }
+            NaytaIlmoitus("Game over!", Color.Pink);
+        }
+
+ Nyt kenttien lis‰‰miseksi riitt‰‰ tehd‰ vaan niit‰ vastaavia merkkijonotaulukkoja
+ ja lis‰t‰ ne tasolistaan.  Taso n‰ytet‰‰n myˆs Labelissa automaattisesti kun
+ tason numero vaihtuu:
+
+        private void LuoNaytot()
+        {
+        ...
+            LuoNaytto("Level: {0:0}",tasoNr,1);
+        ...
+        }
+
+
+ N‰yt‰ ilmoitus n‰ytt‰‰ teksin ja TopTen-listan ja siirryt‰‰n uuten peliin:
+
+        private void NaytaIlmoitus(string teksti, Color vari)
+        {
+            Label label = new Label(teksti);
+            label.Font = Font.DefaultLargeBold;
+            label.Width = 400;
+            label.Height = 200;
+            label.Color = vari;
+            label.BorderColor = Color.Black;
+            Add(label);
+            ClearControls();
+            AsetaJatkoOhjaimet(label);
+            HighScoreWindow topIkkuna = new HighScoreWindow("Top 10",
+                                         "Congratulations! You got %p points! Give you name:",
+                                         topLista, pisteet);
+            topIkkuna.Closed += delegate { DataStorage.Save<ScoreList>(topLista, "pisteet.xml"); AloitaUusiPeli(); };
+            Add(topIkkuna);
+        }
+
+ TopTen listan takia on lis‰tty tuo em. n‰ytt‰minen, ja n‰yttˆikkunan sulkeutumisen j‰lkeen
+ tallentaminen. Itse topLista on laitettu attribuutiksi:
+
+         private ScoreList topLista = new ScoreList(10, false, 0);
+
+ sek‰ listan lataaminen tiedostosta Begin-metodiin.
+
+         public override void Begin()
+        {
+        ...
+            if (DataStorage.Exists("pisteet.xml"))
+                topLista = DataStorage.Load<ScoreList>(topLista, "pisteet.xml");
+        ...
+        }
+
+
+
+

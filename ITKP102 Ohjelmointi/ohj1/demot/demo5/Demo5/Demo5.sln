@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D5_stringbuilder_alkuloppu", "D5_stringbuilder_alkuloppu\D5_stringbuilder_alkuloppu.csproj", "{7D748B4E-8542-48A8-A7EF-9E359590CBCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D5_array_suurinpienin", "D5_array_suurinpienin\D5_array_suurinpienin.csproj", "{D165BB8E-83D4-4F7A-B885-CEB616A5BF2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D5_Kertotaulu_silmukoilla", "D5_Kertotaulu_silmukoilla\D5_Kertotaulu_silmukoilla.csproj", "{98080B8C-5FB9-4A4A-A1D4-2BE28750A4D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D5_TulostaYliMenevat", "D5_TulostaYliMenevat\D5_TulostaYliMenevat.csproj", "{9BF0C2B1-C15D-4267-A5F3-9DD25B8A92FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D5_SummaaYliMenevat", "D5_SummaaYliMenevat\D5_SummaaYliMenevat.csproj", "{796106F3-B363-47AF-B9D0-68ED1245686B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D5_LukujenKysyminenSilmukassa", "D5_LukujenKysyminenSilmukassa\D5_LukujenKysyminenSilmukassa.csproj", "{4410B05A-AFBD-4DCE-BCE1-679668703AEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Debug|x86.ActiveCfg = Debug|x86
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Debug|x86.Build.0 = Debug|x86
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Release|x86.ActiveCfg = Release|x86
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Release|x86.Build.0 = Release|x86
+		{D165BB8E-83D4-4F7A-B885-CEB616A5BF2F}.Debug|x86.ActiveCfg = Debug|x86
+		{D165BB8E-83D4-4F7A-B885-CEB616A5BF2F}.Debug|x86.Build.0 = Debug|x86
+		{D165BB8E-83D4-4F7A-B885-CEB616A5BF2F}.Release|x86.ActiveCfg = Release|x86
+		{D165BB8E-83D4-4F7A-B885-CEB616A5BF2F}.Release|x86.Build.0 = Release|x86
+		{98080B8C-5FB9-4A4A-A1D4-2BE28750A4D2}.Debug|x86.ActiveCfg = Debug|x86
+		{98080B8C-5FB9-4A4A-A1D4-2BE28750A4D2}.Debug|x86.Build.0 = Debug|x86
+		{98080B8C-5FB9-4A4A-A1D4-2BE28750A4D2}.Release|x86.ActiveCfg = Release|x86
+		{98080B8C-5FB9-4A4A-A1D4-2BE28750A4D2}.Release|x86.Build.0 = Release|x86
+		{9BF0C2B1-C15D-4267-A5F3-9DD25B8A92FE}.Debug|x86.ActiveCfg = Debug|x86
+		{9BF0C2B1-C15D-4267-A5F3-9DD25B8A92FE}.Debug|x86.Build.0 = Debug|x86
+		{9BF0C2B1-C15D-4267-A5F3-9DD25B8A92FE}.Release|x86.ActiveCfg = Release|x86
+		{9BF0C2B1-C15D-4267-A5F3-9DD25B8A92FE}.Release|x86.Build.0 = Release|x86
+		{796106F3-B363-47AF-B9D0-68ED1245686B}.Debug|x86.ActiveCfg = Debug|x86
+		{796106F3-B363-47AF-B9D0-68ED1245686B}.Debug|x86.Build.0 = Debug|x86
+		{796106F3-B363-47AF-B9D0-68ED1245686B}.Release|x86.ActiveCfg = Release|x86
+		{796106F3-B363-47AF-B9D0-68ED1245686B}.Release|x86.Build.0 = Release|x86
+		{4410B05A-AFBD-4DCE-BCE1-679668703AEA}.Debug|x86.ActiveCfg = Debug|x86
+		{4410B05A-AFBD-4DCE-BCE1-679668703AEA}.Debug|x86.Build.0 = Debug|x86
+		{4410B05A-AFBD-4DCE-BCE1-679668703AEA}.Release|x86.ActiveCfg = Release|x86
+		{4410B05A-AFBD-4DCE-BCE1-679668703AEA}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {604880F8-FA46-40CC-A88C-B9F6314D318D}
+	EndGlobalSection
+EndGlobal

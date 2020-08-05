@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoKaantaaTaulukonPainVastoin\bin\Debug\D6_TaunoKaantaaTaulukonPainVastoin.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoKaantaaTaulukonPainVastoin\bin\Debug\D6_TaunoKaantaaTaulukonPainVastoin.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoKaantaaTaulukonPainVastoin\obj\x86\Debug\D6_TaunoKaantaaTaulukonPainVastoin.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoKaantaaTaulukonPainVastoin\obj\x86\Debug\D6_TaunoKaantaaTaulukonPainVastoin.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoKaantaaTaulukonPainVastoin\obj\x86\Debug\D6_TaunoKaantaaTaulukonPainVastoin.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoKaantaaTaulukonPainVastoin\obj\x86\Debug\D6_TaunoKaantaaTaulukonPainVastoin.pdb

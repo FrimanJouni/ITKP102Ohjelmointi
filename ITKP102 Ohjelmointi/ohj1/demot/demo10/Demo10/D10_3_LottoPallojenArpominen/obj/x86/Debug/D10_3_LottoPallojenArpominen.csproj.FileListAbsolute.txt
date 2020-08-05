@@ -1,0 +1,2 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo10\Demo10\D10_3_LottoPallojenArpominen\obj\x86\Debug\D10_3_LottoPallojenArpominen.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo10\Demo10\D10_3_LottoPallojenArpominen\obj\x86\Debug\D10_3_LottoPallojenArpominen.csproj.CoreCompileInputs.cache

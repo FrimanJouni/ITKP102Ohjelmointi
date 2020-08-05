@@ -1,0 +1,160 @@
+﻿using System;
+using System.Collections.Generic;
+using Jypeli;
+using Jypeli.Assets;
+using Jypeli.Controls;
+using Jypeli.Widgets;
+
+
+//@author Jouni Friman
+//@version 6.11.2018
+//<summary>
+// SMHUP-peli Tauskista ja kamppailusta Täysmaidon kanssa.
+//</summary>
+
+
+
+public class TaysmaitoTauski : PhysicsGame
+{
+    //Pelaajahahmo
+    private PhysicsObject tauski;
+    private IntMeter pelaajaHP;
+
+    //Pelaajan ammukset
+    private PhysicsObject ammus;
+
+    //Vihollinen
+    private PhysicsObject vihu;
+
+
+    //TODO: Boundaryt
+
+
+    public override void Begin()
+    {
+
+        LuoPelaaja();                                                                                                //Luo pelaajan kentälle.
+        AsetaNappaimet();
+        LuoVihollinen();                                                                                            //TODO: Tälle lisää eri luonteja, taulukko?
+        LuoLaskuri();
+
+    }
+
+    private void LuoPelaaja()                   //Luo pelaajaan aliohjelmana
+    {
+        tauski = new PhysicsObject(50, 50);
+        tauski.Shape = Shape.Heart;
+        tauski.Color = Color.BloodRed;
+        tauski.Tag = "pelaaja";
+        AddCollisionHandler(tauski, "vihollinen", PelaajaanOsuu);        //Törmäystarkastaja, antaa parametrina ja "täginä" aliohjelmalla tiedot. Eli tauski törmää
+        Add(tauski);                                                     //"vihollinen" tägillä merkittyyn objektiin
+    }
+
+    private void PelaajaanOsuu(PhysicsObject tauski, PhysicsObject kohde)   //Jos collisionhandler huomaa osuman viholliseen, tauski tuhoutuu. TODO:HP grafiikat
+    {
+        pelaajaHP.Value -= 1;
+        if(pelaajaHP == 0) tauski.Destroy();
+    }
+
+    private void ViholliseenOsuu(PhysicsObject vihu, PhysicsObject kohde)
+    {
+        vihu.Destroy();
+    }
+
+    private void LuoVihollinen()            //Luo vihollisen TODO: Useita vihuja eri kuvioissa.
+    {
+        vihu = new PhysicsObject(30, 30);
+        vihu.Shape = Shape.Star;
+        vihu.Color = Color.Black;
+        vihu.Tag = "vihollinen";
+        AddCollisionHandler(vihu, "ammus", ViholliseenOsuu);
+        vihu.IgnoresCollisionResponse = true;
+        vihu.X = 20;
+        vihu.Y = 500;
+        vihu.Move(new Vector(0, -100));
+        Add(vihu);
+    }
+
+    private void LuoLaskuri()               //Luo ja bindaa HP-laskurin oikeaan alakulmaan.
+    {
+        pelaajaHP = new IntMeter(5);
+
+        Label naytaHP = new Label();
+        naytaHP.X = Screen.Right - 100;
+        naytaHP.Y = Screen.Bottom + 100;
+        naytaHP.TextColor = Color.BloodRed;
+        naytaHP.Color = Color.White;
+
+        naytaHP.BindTo(pelaajaHP);
+        Add(naytaHP);
+    }
+
+    private void AsetaNappaimet()
+    {
+        Timer ajastin = new Timer();                                                                                //Ammusten ulostulon nopeuden ajastin
+        ajastin.Interval = 0.06;
+        ajastin.Timeout += delegate { PelaajaAmpuu(); };
+
+        Keyboard.Listen(Key.Left, ButtonState.Down, PelaajaLiikkuuVasemmalle, "Pelaaja liikkuu vasemmalle");         //Liikuttaa pelaajaa näppäintä painaessa
+        Keyboard.Listen(Key.Right, ButtonState.Down, PelaajaLiikkuuOikealle, "Pelaaja liikkuu oikealle");
+        Keyboard.Listen(Key.Up, ButtonState.Down, PelaajaLiikkuuYlos, "Pelaaja liikkuu ylöspäin");
+        Keyboard.Listen(Key.Down, ButtonState.Down, PelaajaLiikkuuAlas, "Pelaaja liikkuu alaspäin");
+
+        Keyboard.Listen(Key.Left, ButtonState.Released, PelaajaPysahtyy, "Pelaaja pysähtyy");                        //Pysäyttää pelaajan liikkeen kun näppäin vapautetaan
+        Keyboard.Listen(Key.Right, ButtonState.Released, PelaajaPysahtyy, "Pelaaja pysähtyy");
+        Keyboard.Listen(Key.Up, ButtonState.Released, PelaajaPysahtyy, "Pelaaja pysähtyy");
+        Keyboard.Listen(Key.Down, ButtonState.Released, PelaajaPysahtyy, "Pelaaja pysähtyy");
+
+        Keyboard.Listen(Key.Space, ButtonState.Down, delegate { ajastin.Start(3); }, "Pelaaja ampuu");                  //Timerilla kuinka nopealla tahdilla pelaaja pystyy ampumaan.
+
+        PhoneBackButton.Listen(ConfirmExit, "Lopeta peli");
+        Keyboard.Listen(Key.Escape, ButtonState.Pressed, ConfirmExit, "Lopeta peli");
+    }
+
+
+    private void PelaajaAmpuu()                 //Luo ammuksia kun pelaaja ampuu TODO: ammus tuhoutuu kun törmää viholliseen
+    {
+        ammus = new PhysicsObject(10, 10);
+        ammus.LifetimeLeft = TimeSpan.FromSeconds(5.0);
+        ammus.Shape = Shape.Heart;
+        ammus.Color = Color.DarkRed;
+        ammus.Tag = "ammus";
+        ammus.X = tauski.X;
+        ammus.Y = tauski.Y + 35;
+        ammus.Move(new Vector(0, 500));
+        Add(ammus);
+    }
+
+
+    private void PelaajaLiikkuuVasemmalle()     //Liike aliohjelmat, TODO: Laita nämä yhteen settiin jotenkin, liikaa toistoa? Listerneriin lisää parametrejä ja yksi liikuttaja aliohejlma? Delegate?
+    {
+        Vector m = new Vector(-450, 0);
+        tauski.Move(m);
+    }
+
+    private void PelaajaLiikkuuOikealle()
+    {
+        Vector m = new Vector(450, 0);
+        tauski.Move(m);
+    }
+
+    private void PelaajaLiikkuuYlos()
+    {
+        Vector m = new Vector(0, 450);
+        tauski.Move(m);
+    }
+
+    private void PelaajaLiikkuuAlas()
+    {
+        Vector m = new Vector(0, -450);
+        tauski.Move(m);
+    }
+
+    private void PelaajaPysahtyy()              //Liike aliohjelmat loppuvat
+    {
+        Vector m = new Vector(0, 0);
+        tauski.Move(m);
+    }
+
+
+}

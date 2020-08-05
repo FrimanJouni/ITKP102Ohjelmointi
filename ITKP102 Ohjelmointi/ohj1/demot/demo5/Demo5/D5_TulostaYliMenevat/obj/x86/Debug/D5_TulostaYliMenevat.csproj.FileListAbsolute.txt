@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_TulostaYliMenevat\bin\Debug\D5_TulostaYliMenevat.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_TulostaYliMenevat\bin\Debug\D5_TulostaYliMenevat.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_TulostaYliMenevat\obj\x86\Debug\D5_TulostaYliMenevat.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_TulostaYliMenevat\obj\x86\Debug\D5_TulostaYliMenevat.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_TulostaYliMenevat\obj\x86\Debug\D5_TulostaYliMenevat.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_TulostaYliMenevat\obj\x86\Debug\D5_TulostaYliMenevat.pdb

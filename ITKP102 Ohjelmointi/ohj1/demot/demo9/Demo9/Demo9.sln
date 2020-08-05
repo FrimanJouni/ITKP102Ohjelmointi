@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D9_Tauno_keskiarvoRajojensisällä", "D9_Tauno_keskiarvoRajojensisällä\D9_Tauno_keskiarvoRajojensisällä.csproj", "{7D748B4E-8542-48A8-A7EF-9E359590CBCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D9_t1_nousevatArvotTaulukossa", "D9_t1_nousevatArvotTaulukossa\D9_t1_nousevatArvotTaulukossa.csproj", "{E02108C3-5B50-40E5-B436-3C581ED91F56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D9_t2_PortaatYlos", "D9_t2_PortaatYlos\D9_t2_PortaatYlos.csproj", "{C388DEDA-59F8-4AB0-85A1-073C936D3132}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D9_t4_pisimmanSananPoistoListasta", "D9_t4_pisimmanSananPoistoListasta\D9_t4_pisimmanSananPoistoListasta.csproj", "{755F2F6D-494A-4442-B3DA-D92789043BDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D9_t3_PortaatYlosAlas", "D9_t3_PortaatYlosAlas\D9_t3_PortaatYlosAlas.csproj", "{FDC0D3B1-34A4-4112-9B59-D530F6326084}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Debug|x86.ActiveCfg = Debug|x86
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Debug|x86.Build.0 = Debug|x86
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Release|x86.ActiveCfg = Release|x86
+		{7D748B4E-8542-48A8-A7EF-9E359590CBCF}.Release|x86.Build.0 = Release|x86
+		{E02108C3-5B50-40E5-B436-3C581ED91F56}.Debug|x86.ActiveCfg = Debug|x86
+		{E02108C3-5B50-40E5-B436-3C581ED91F56}.Debug|x86.Build.0 = Debug|x86
+		{E02108C3-5B50-40E5-B436-3C581ED91F56}.Release|x86.ActiveCfg = Release|x86
+		{E02108C3-5B50-40E5-B436-3C581ED91F56}.Release|x86.Build.0 = Release|x86
+		{C388DEDA-59F8-4AB0-85A1-073C936D3132}.Debug|x86.ActiveCfg = Debug|x86
+		{C388DEDA-59F8-4AB0-85A1-073C936D3132}.Debug|x86.Build.0 = Debug|x86
+		{C388DEDA-59F8-4AB0-85A1-073C936D3132}.Release|x86.ActiveCfg = Release|x86
+		{C388DEDA-59F8-4AB0-85A1-073C936D3132}.Release|x86.Build.0 = Release|x86
+		{755F2F6D-494A-4442-B3DA-D92789043BDA}.Debug|x86.ActiveCfg = Debug|x86
+		{755F2F6D-494A-4442-B3DA-D92789043BDA}.Debug|x86.Build.0 = Debug|x86
+		{755F2F6D-494A-4442-B3DA-D92789043BDA}.Release|x86.ActiveCfg = Release|x86
+		{755F2F6D-494A-4442-B3DA-D92789043BDA}.Release|x86.Build.0 = Release|x86
+		{FDC0D3B1-34A4-4112-9B59-D530F6326084}.Debug|x86.ActiveCfg = Debug|x86
+		{FDC0D3B1-34A4-4112-9B59-D530F6326084}.Debug|x86.Build.0 = Debug|x86
+		{FDC0D3B1-34A4-4112-9B59-D530F6326084}.Release|x86.ActiveCfg = Release|x86
+		{FDC0D3B1-34A4-4112-9B59-D530F6326084}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A583CA6-00FE-490B-8E97-AEB45477228D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\Taulukot\bin\Debug\Taulukot.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\Taulukot\bin\Debug\Taulukot.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\Taulukot\obj\x86\Debug\Taulukot.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\Taulukot\obj\x86\Debug\Taulukot.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\Taulukot\obj\x86\Debug\Taulukot.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\Taulukot\obj\x86\Debug\Taulukot.pdb

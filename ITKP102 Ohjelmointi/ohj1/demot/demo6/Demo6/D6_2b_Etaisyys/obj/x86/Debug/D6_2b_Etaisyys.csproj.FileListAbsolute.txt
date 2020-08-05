@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_2b_Etaisyys\bin\Debug\D6_2b_Etaisyys.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_2b_Etaisyys\bin\Debug\D6_2b_Etaisyys.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_2b_Etaisyys\obj\x86\Debug\D6_2b_Etaisyys.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_2b_Etaisyys\obj\x86\Debug\D6_2b_Etaisyys.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_2b_Etaisyys\obj\x86\Debug\D6_2b_Etaisyys.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_2b_Etaisyys\obj\x86\Debug\D6_2b_Etaisyys.pdb

@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo11\Demo11\D11_ToiseksiSuuri\bin\Debug\D11_ToiseksiSuuri.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo11\Demo11\D11_ToiseksiSuuri\bin\Debug\D11_ToiseksiSuuri.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo11\Demo11\D11_ToiseksiSuuri\obj\x86\Debug\D11_ToiseksiSuuri.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo11\Demo11\D11_ToiseksiSuuri\obj\x86\Debug\D11_ToiseksiSuuri.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo11\Demo11\D11_ToiseksiSuuri\obj\x86\Debug\D11_ToiseksiSuuri.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo11\Demo11\D11_ToiseksiSuuri\obj\x86\Debug\D11_ToiseksiSuuri.pdb

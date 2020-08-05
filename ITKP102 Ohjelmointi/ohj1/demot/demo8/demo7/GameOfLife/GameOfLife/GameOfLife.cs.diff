@@ -1,0 +1,19 @@
+        private void LaskeJaPiirraSeuraavaSukupolvi()
+        {   //                0 1 2 3 4 5 6 7 8
+            int[,] b03s1 = { {1,0,0,1,0,0,0,0,0}, // born
+                             {0,1,0,0,0,0,0,0,0}  // survive
+                           };
+            Sopulit2.SeuraavaSukupolviTorus(sukupolvi, seuraavaSukupolvi); // ,b03s1);
+            int[,] tmp = sukupolvi;     // vaihdetaan taulukot seuraavaa
+            sukupolvi = seuraavaSukupolvi;  // kierrosta varten
+            seuraavaSukupolvi = tmp;
+
+            int ny = sukupolvi.GetLength(0);
+            int nx = sukupolvi.GetLength(1);
+
+            for (int iy = 0; iy < ny; iy++)
+                for (int ix = 0; ix < nx; ix++)
+                    oliot[iy, ix].Color = varit[sukupolvi[iy, ix]];
+        }
+        
+        

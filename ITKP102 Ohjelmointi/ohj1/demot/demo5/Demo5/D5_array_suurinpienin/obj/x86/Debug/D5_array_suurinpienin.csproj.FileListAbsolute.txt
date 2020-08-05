@@ -1,0 +1,5 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_array_suurinpienin\bin\Debug\D5_array_suurinpienin.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_array_suurinpienin\bin\Debug\D5_array_suurinpienin.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_array_suurinpienin\obj\x86\Debug\D5_array_suurinpienin.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_array_suurinpienin\obj\x86\Debug\D5_array_suurinpienin.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_array_suurinpienin\obj\x86\Debug\D5_array_suurinpienin.pdb

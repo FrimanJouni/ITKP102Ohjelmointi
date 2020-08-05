@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_stringbuilder_alkuloppu\bin\Debug\D5_stringbuilder_alkuloppu.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_stringbuilder_alkuloppu\bin\Debug\D5_stringbuilder_alkuloppu.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_stringbuilder_alkuloppu\obj\x86\Debug\D5_stringbuilder_alkuloppu.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_stringbuilder_alkuloppu\obj\x86\Debug\D5_stringbuilder_alkuloppu.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_stringbuilder_alkuloppu\obj\x86\Debug\D5_stringbuilder_alkuloppu.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_stringbuilder_alkuloppu\obj\x86\Debug\D5_stringbuilder_alkuloppu.pdb

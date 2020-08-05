@@ -1,0 +1,13 @@
+=---
+Tauno7/Tauno7.cs = Tauno 1
+Tauno72/Tauno72.cs = Tauno 2
+Kuvaaja/Kuvaaja.cs.diff = 1.-4. Muutokset Kuvaaja.cs:ään
+Kuvaaja/Kuvaaja.cs = 1.-4.  Koko tiedosto
+Taulukot/Taulukot.cs = 5., 6., B1.  Matriisien summa, erota luvut, laske kirjaimet
+GameOfLife/GameOfLife.cs.diff = B3, G1. Uuden sopuli-version käyttö
+GameOfLife/GameOfLife.cs = B3., G1. Koko tiedosto
+GameOfLife/Sopulit2.cs = B2, B3, G1 Naapureiden laskeminen ja säännöt
+AngryLego/AngryLego.cs.diff = B4-5., G2-3. Parannuksia AngryLego-peliin
+AngryLego/AngryLego.cs = B4-5., G2-3. Koko tiedosto
+
+

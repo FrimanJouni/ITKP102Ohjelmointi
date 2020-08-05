@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t1_nousevatArvotTaulukossa\bin\Debug\D9_t1_nousevatArvotTaulukossa.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t1_nousevatArvotTaulukossa\bin\Debug\D9_t1_nousevatArvotTaulukossa.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t1_nousevatArvotTaulukossa\obj\x86\Debug\D9_t1_nousevatArvotTaulukossa.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t1_nousevatArvotTaulukossa\obj\x86\Debug\D9_t1_nousevatArvotTaulukossa.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t1_nousevatArvotTaulukossa\obj\x86\Debug\D9_t1_nousevatArvotTaulukossa.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t1_nousevatArvotTaulukossa\obj\x86\Debug\D9_t1_nousevatArvotTaulukossa.pdb

@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_Kertotaulu_silmukoilla\bin\Debug\D5_Kertotaulu_silmukoilla.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_Kertotaulu_silmukoilla\bin\Debug\D5_Kertotaulu_silmukoilla.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_Kertotaulu_silmukoilla\obj\x86\Debug\D5_Kertotaulu_silmukoilla.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_Kertotaulu_silmukoilla\obj\x86\Debug\D5_Kertotaulu_silmukoilla.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_Kertotaulu_silmukoilla\obj\x86\Debug\D5_Kertotaulu_silmukoilla.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_Kertotaulu_silmukoilla\obj\x86\Debug\D5_Kertotaulu_silmukoilla.pdb

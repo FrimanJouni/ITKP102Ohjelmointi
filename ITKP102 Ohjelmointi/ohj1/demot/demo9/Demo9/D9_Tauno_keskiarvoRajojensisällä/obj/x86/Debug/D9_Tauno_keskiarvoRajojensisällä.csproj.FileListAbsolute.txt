@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_Tauno_keskiarvoRajojensisällä\bin\Debug\D9_Tauno_keskiarvoRajojensisällä.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_Tauno_keskiarvoRajojensisällä\bin\Debug\D9_Tauno_keskiarvoRajojensisällä.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_Tauno_keskiarvoRajojensisällä\obj\x86\Debug\D9_Tauno_keskiarvoRajojensisällä.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_Tauno_keskiarvoRajojensisällä\obj\x86\Debug\D9_Tauno_keskiarvoRajojensisällä.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_Tauno_keskiarvoRajojensisällä\obj\x86\Debug\D9_Tauno_keskiarvoRajojensisällä.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_Tauno_keskiarvoRajojensisällä\obj\x86\Debug\D9_Tauno_keskiarvoRajojensisällä.pdb

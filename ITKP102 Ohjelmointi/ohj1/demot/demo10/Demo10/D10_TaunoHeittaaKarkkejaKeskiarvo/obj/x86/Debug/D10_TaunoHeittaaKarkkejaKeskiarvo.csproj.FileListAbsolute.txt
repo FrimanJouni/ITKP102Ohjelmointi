@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo10\Demo10\D10_TaunoHeittaaKarkkejaKeskiarvo\bin\Debug\D10_TaunoHeittaaKarkkejaKeskiarvo.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo10\Demo10\D10_TaunoHeittaaKarkkejaKeskiarvo\bin\Debug\D10_TaunoHeittaaKarkkejaKeskiarvo.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo10\Demo10\D10_TaunoHeittaaKarkkejaKeskiarvo\obj\x86\Debug\D10_TaunoHeittaaKarkkejaKeskiarvo.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo10\Demo10\D10_TaunoHeittaaKarkkejaKeskiarvo\obj\x86\Debug\D10_TaunoHeittaaKarkkejaKeskiarvo.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo10\Demo10\D10_TaunoHeittaaKarkkejaKeskiarvo\obj\x86\Debug\D10_TaunoHeittaaKarkkejaKeskiarvo.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo10\Demo10\D10_TaunoHeittaaKarkkejaKeskiarvo\obj\x86\Debug\D10_TaunoHeittaaKarkkejaKeskiarvo.pdb

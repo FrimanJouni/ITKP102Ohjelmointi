@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_Tauno_yliMenevatLaskuri\bin\Debug\D8_Tauno_yliMenevatLaskuri.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_Tauno_yliMenevatLaskuri\bin\Debug\D8_Tauno_yliMenevatLaskuri.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_Tauno_yliMenevatLaskuri\obj\x86\Debug\D8_Tauno_yliMenevatLaskuri.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_Tauno_yliMenevatLaskuri\obj\x86\Debug\D8_Tauno_yliMenevatLaskuri.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_Tauno_yliMenevatLaskuri\obj\x86\Debug\D8_Tauno_yliMenevatLaskuri.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_Tauno_yliMenevatLaskuri\obj\x86\Debug\D8_Tauno_yliMenevatLaskuri.pdb

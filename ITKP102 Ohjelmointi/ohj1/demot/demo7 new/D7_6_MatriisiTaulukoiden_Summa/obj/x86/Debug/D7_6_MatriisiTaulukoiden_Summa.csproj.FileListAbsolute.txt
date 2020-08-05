@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_6_MatriisiTaulukoiden_Summa\bin\Debug\D7_6_MatriisiTaulukoiden_Summa.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_6_MatriisiTaulukoiden_Summa\bin\Debug\D7_6_MatriisiTaulukoiden_Summa.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_6_MatriisiTaulukoiden_Summa\obj\x86\Debug\D7_6_MatriisiTaulukoiden_Summa.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_6_MatriisiTaulukoiden_Summa\obj\x86\Debug\D7_6_MatriisiTaulukoiden_Summa.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_6_MatriisiTaulukoiden_Summa\obj\x86\Debug\D7_6_MatriisiTaulukoiden_Summa.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo7 new\D7_6_MatriisiTaulukoiden_Summa\obj\x86\Debug\D7_6_MatriisiTaulukoiden_Summa.pdb

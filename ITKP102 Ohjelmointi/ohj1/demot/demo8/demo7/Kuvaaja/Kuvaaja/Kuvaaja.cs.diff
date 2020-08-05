@@ -1,0 +1,58 @@
+
+Tehtävä 1:
+==========
+        public static void LuoPisteet(PhysicsGame game, Vector[] pisteet, double r)
+        {
+            foreach (Vector p in pisteet)
+                LuoPallo(game, p, r, Color.Black);
+        }
+
+
+Tehtävä 2:
+==========
+        public static Vector[] ArvoPisteet(int n, double x1, double y1, double x2, double y2)
+        {
+            Vector[] pisteet = new Vector[n];
+            for (int i = 0; i < n; i++)
+            {
+                double x = RandomGen.NextDouble(x1, x2);
+                double y = RandomGen.NextDouble(y1, y2);
+                pisteet[i] = new Vector(x, y);
+            }
+            return pisteet;
+        }
+
+Tehtävä 3:
+==========
+        public static int LahimmanIndeksi(Vector[] pisteet, Vector piste)
+        {
+            int paikka = -1;
+            double ero = double.MaxValue;
+            for (int i = 0; i < pisteet.Length; i++)
+            {
+                Vector p = pisteet[i];
+                double d = Vector.Distance(piste, p);
+                if (d < ero)
+                {
+                    paikka = i;
+                    ero = d;
+                }
+            }
+            return paikka;
+        }
+
+
+Tehtävä 4:
+==========
+        public void SiirraMerkkipisteet(Vector p)
+        {
+            klikattuPiste.Position = p;
+
+            int i = LahimmanIndeksi(pisteet, p);
+            if (i < 0) return;
+
+            merkkipiste.Position = pisteet[i];
+        }
+
+
+

@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t1_olikoKarkausvuosi\bin\Debug\D8_t1_olikoKarkausvuosi.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t1_olikoKarkausvuosi\bin\Debug\D8_t1_olikoKarkausvuosi.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t1_olikoKarkausvuosi\obj\x86\Debug\D8_t1_olikoKarkausvuosi.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t1_olikoKarkausvuosi\obj\x86\Debug\D8_t1_olikoKarkausvuosi.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t1_olikoKarkausvuosi\obj\x86\Debug\D8_t1_olikoKarkausvuosi.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t1_olikoKarkausvuosi\obj\x86\Debug\D8_t1_olikoKarkausvuosi.pdb

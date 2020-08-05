@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_4_pisteidenValinenEtaisyys\bin\Debug\D6_4_pisteidenValinenEtaisyys.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_4_pisteidenValinenEtaisyys\bin\Debug\D6_4_pisteidenValinenEtaisyys.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_4_pisteidenValinenEtaisyys\obj\x86\Debug\D6_4_pisteidenValinenEtaisyys.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_4_pisteidenValinenEtaisyys\obj\x86\Debug\D6_4_pisteidenValinenEtaisyys.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_4_pisteidenValinenEtaisyys\obj\x86\Debug\D6_4_pisteidenValinenEtaisyys.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_4_pisteidenValinenEtaisyys\obj\x86\Debug\D6_4_pisteidenValinenEtaisyys.pdb

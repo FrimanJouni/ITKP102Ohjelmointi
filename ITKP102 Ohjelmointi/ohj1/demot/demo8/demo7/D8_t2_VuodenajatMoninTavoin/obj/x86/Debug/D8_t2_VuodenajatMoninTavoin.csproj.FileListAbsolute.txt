@@ -1,0 +1,5 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t2_VuodenajatMoninTavoin\obj\x86\Debug\D8_t2_VuodenajatMoninTavoin.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t2_VuodenajatMoninTavoin\bin\Debug\D8_t2_VuodenajatMoninTavoin.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t2_VuodenajatMoninTavoin\bin\Debug\D8_t2_VuodenajatMoninTavoin.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t2_VuodenajatMoninTavoin\obj\x86\Debug\D8_t2_VuodenajatMoninTavoin.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo8\demo7\D8_t2_VuodenajatMoninTavoin\obj\x86\Debug\D8_t2_VuodenajatMoninTavoin.pdb

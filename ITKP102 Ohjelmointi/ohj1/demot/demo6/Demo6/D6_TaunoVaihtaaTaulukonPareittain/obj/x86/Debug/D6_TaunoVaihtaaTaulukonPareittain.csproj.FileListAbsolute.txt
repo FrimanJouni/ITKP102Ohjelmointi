@@ -1,0 +1,5 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoVaihtaaTaulukonPareittain\bin\Debug\D6_TaunoVaihtaaTaulukonPareittain.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoVaihtaaTaulukonPareittain\bin\Debug\D6_TaunoVaihtaaTaulukonPareittain.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoVaihtaaTaulukonPareittain\obj\x86\Debug\D6_TaunoVaihtaaTaulukonPareittain.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoVaihtaaTaulukonPareittain\obj\x86\Debug\D6_TaunoVaihtaaTaulukonPareittain.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo6\Demo6\D6_TaunoVaihtaaTaulukonPareittain\obj\x86\Debug\D6_TaunoVaihtaaTaulukonPareittain.pdb

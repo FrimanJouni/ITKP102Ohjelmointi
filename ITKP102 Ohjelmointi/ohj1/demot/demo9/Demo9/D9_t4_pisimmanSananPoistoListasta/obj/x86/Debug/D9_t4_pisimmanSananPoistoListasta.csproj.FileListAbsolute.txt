@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t4_pisimmanSananPoistoListasta\bin\Debug\D9_t4_pisimmanSananPoistoListasta.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t4_pisimmanSananPoistoListasta\bin\Debug\D9_t4_pisimmanSananPoistoListasta.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t4_pisimmanSananPoistoListasta\obj\x86\Debug\D9_t4_pisimmanSananPoistoListasta.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t4_pisimmanSananPoistoListasta\obj\x86\Debug\D9_t4_pisimmanSananPoistoListasta.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t4_pisimmanSananPoistoListasta\obj\x86\Debug\D9_t4_pisimmanSananPoistoListasta.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo9\Demo9\D9_t4_pisimmanSananPoistoListasta\obj\x86\Debug\D9_t4_pisimmanSananPoistoListasta.pdb

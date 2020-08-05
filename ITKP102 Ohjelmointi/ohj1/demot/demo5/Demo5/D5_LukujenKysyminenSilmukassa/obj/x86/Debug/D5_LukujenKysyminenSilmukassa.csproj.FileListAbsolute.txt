@@ -1,0 +1,6 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_LukujenKysyminenSilmukassa\bin\Debug\D5_LukujenKysyminenSilmukassa.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_LukujenKysyminenSilmukassa\bin\Debug\D5_LukujenKysyminenSilmukassa.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_LukujenKysyminenSilmukassa\obj\x86\Debug\D5_LukujenKysyminenSilmukassa.csprojResolveAssemblyReference.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_LukujenKysyminenSilmukassa\obj\x86\Debug\D5_LukujenKysyminenSilmukassa.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_LukujenKysyminenSilmukassa\obj\x86\Debug\D5_LukujenKysyminenSilmukassa.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_LukujenKysyminenSilmukassa\obj\x86\Debug\D5_LukujenKysyminenSilmukassa.pdb

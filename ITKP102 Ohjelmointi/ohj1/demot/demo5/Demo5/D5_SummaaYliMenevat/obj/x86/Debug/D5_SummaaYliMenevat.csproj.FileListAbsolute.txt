@@ -1,0 +1,5 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_SummaaYliMenevat\bin\Debug\D5_SummaaYliMenevat.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_SummaaYliMenevat\bin\Debug\D5_SummaaYliMenevat.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_SummaaYliMenevat\obj\x86\Debug\D5_SummaaYliMenevat.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_SummaaYliMenevat\obj\x86\Debug\D5_SummaaYliMenevat.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo5\Demo5\D5_SummaaYliMenevat\obj\x86\Debug\D5_SummaaYliMenevat.pdb

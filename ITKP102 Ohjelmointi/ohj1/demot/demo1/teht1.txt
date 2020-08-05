@@ -1,0 +1,56 @@
+ Volume in drive D has no label.
+ Volume Serial Number is B673-4FD0
+
+ Directory of D:\Yliopisto
+
+14.01.2018  15.17    <DIR>          .
+14.01.2018  15.17    <DIR>          ..
+14.01.2018  15.17    <DIR>          Kurssit
+               0 File(s)              0 bytes
+
+ Directory of D:\Yliopisto\Kurssit
+
+14.01.2018  15.17    <DIR>          .
+14.01.2018  15.17    <DIR>          ..
+14.01.2018  15.18    <DIR>          ohj1
+               0 File(s)              0 bytes
+
+ Directory of D:\Yliopisto\Kurssit\ohj1
+
+14.01.2018  15.18    <DIR>          .
+14.01.2018  15.18    <DIR>          ..
+14.01.2018  15.18    <DIR>          demot
+14.01.2018  15.18    <DIR>          ht
+               0 File(s)              0 bytes
+
+ Directory of D:\Yliopisto\Kurssit\ohj1\demot
+
+14.01.2018  15.18    <DIR>          .
+14.01.2018  15.18    <DIR>          ..
+14.01.2018  15.22    <DIR>          demo1
+14.01.2018  15.18    <DIR>          demo2
+               0 File(s)              0 bytes
+
+ Directory of D:\Yliopisto\Kurssit\ohj1\demot\demo1
+
+14.01.2018  15.22    <DIR>          .
+14.01.2018  15.22    <DIR>          ..
+14.01.2018  15.19               245 HelloWorld.cs
+14.01.2018  15.24                 0 teht1.txt
+               2 File(s)            245 bytes
+
+ Directory of D:\Yliopisto\Kurssit\ohj1\demot\demo2
+
+14.01.2018  15.18    <DIR>          .
+14.01.2018  15.18    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\Yliopisto\Kurssit\ohj1\ht
+
+14.01.2018  15.18    <DIR>          .
+14.01.2018  15.18    <DIR>          ..
+               0 File(s)              0 bytes
+
+     Total Files Listed:
+               2 File(s)            245 bytes
+              20 Dir(s)  315ÿ136ÿ815ÿ104 bytes free
