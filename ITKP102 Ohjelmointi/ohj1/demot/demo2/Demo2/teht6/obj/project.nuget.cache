@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "QYX8b1MOH6IhmM091F90t8uFcC7Y+0u7Pr1hy7SPzZ3uUJDn6Z4JvmKeR5XbZb5/B25e6L7UliIAxrvD+KQ2DQ==",
+  "success": true,
+  "projectFilePath": "D:\\Yliopisto\\ITKP102 Ohjelmointi\\ohj1\\demot\\demo2\\Demo2\\teht6\\teht6.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nitro\\.nuget\\packages\\jypeli.core\\9.0.1\\jypeli.core.9.0.1.nupkg.sha512",
+    "C:\\Users\\Nitro\\.nuget\\packages\\jypeli.physics2d.core\\1.5.1\\jypeli.physics2d.core.1.5.1.nupkg.sha512",
+    "C:\\Users\\Nitro\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Nitro\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Nitro\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

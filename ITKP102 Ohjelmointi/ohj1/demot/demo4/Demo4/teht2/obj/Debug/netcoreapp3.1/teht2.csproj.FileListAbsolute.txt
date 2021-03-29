@@ -1,0 +1,12 @@
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\bin\Debug\netcoreapp3.1\teht2.exe
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\bin\Debug\netcoreapp3.1\teht2.deps.json
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\bin\Debug\netcoreapp3.1\teht2.runtimeconfig.json
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\bin\Debug\netcoreapp3.1\teht2.runtimeconfig.dev.json
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\bin\Debug\netcoreapp3.1\teht2.dll
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\bin\Debug\netcoreapp3.1\teht2.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\obj\Debug\netcoreapp3.1\teht2.AssemblyInfoInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\obj\Debug\netcoreapp3.1\teht2.AssemblyInfo.cs
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\obj\Debug\netcoreapp3.1\teht2.csproj.CoreCompileInputs.cache
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\obj\Debug\netcoreapp3.1\teht2.dll
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\obj\Debug\netcoreapp3.1\teht2.pdb
+D:\Yliopisto\ITKP102 Ohjelmointi\ohj1\demot\demo4\Demo4\teht2\obj\Debug\netcoreapp3.1\teht2.genruntimeconfig.cache
